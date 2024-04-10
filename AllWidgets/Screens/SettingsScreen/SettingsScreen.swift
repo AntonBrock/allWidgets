@@ -14,7 +14,7 @@ struct SettingsScreen: View {
     var body: some View {
         
         VStack {
-//            CustomNavigationView(title: $title)
+//            CustomNavigationView(title: $title)  
             
             ScrollView {
                 VStack(spacing: 14) {

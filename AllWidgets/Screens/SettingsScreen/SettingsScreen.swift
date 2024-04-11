@@ -14,7 +14,7 @@ struct SettingsScreen: View {
     var body: some View {
         
         VStack {
-//            CustomNavigationView(title: $title)  
+//            CustomNavigationView(title: $title)
             
             ScrollView {
                 VStack(spacing: 14) {
@@ -134,7 +134,7 @@ struct SettingsScreen: View {
                     
                     // Share the app
                     Button {
-                        print("Action")
+                        shareApp()
                     } label: {
                         HStack {
                             ZStack {
@@ -177,5 +177,17 @@ struct SettingsScreen: View {
                 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    }
+    
+    private func shareApp() {
+        guard let url = URL(string: "https://yourappurl.com") else {
+            return
+        }
+        
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        
+        if let viewController = UIApplication.shared.windows.first?.rootViewController {
+            viewController.present(activityViewController, animated: true, completion: nil)
+        }
     }
 }

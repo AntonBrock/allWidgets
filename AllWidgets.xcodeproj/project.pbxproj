@@ -25,7 +25,47 @@
 		459CC3CB2BC70827007CE7F1 /* WallspaperScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3CA2BC70827007CE7F1 /* WallspaperScreen.swift */; };
 		459CC3CD2BC70F3C007CE7F1 /* WallsPaperDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3CC2BC70F3C007CE7F1 /* WallsPaperDetailScreen.swift */; };
 		459CC3D12BC7BFF6007CE7F1 /* WidgetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3D02BC7BFF6007CE7F1 /* WidgetsScreen.swift */; };
+		459CC3D92BC7CD0F007CE7F1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459CC3D82BC7CD0F007CE7F1 /* WidgetKit.framework */; };
+		459CC3DB2BC7CD0F007CE7F1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459CC3DA2BC7CD0F007CE7F1 /* SwiftUI.framework */; };
+		459CC3DE2BC7CD0F007CE7F1 /* allWidgetsWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3DD2BC7CD0F007CE7F1 /* allWidgetsWidgetsBundle.swift */; };
+		459CC3E02BC7CD0F007CE7F1 /* allWidgetsWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3DF2BC7CD0F007CE7F1 /* allWidgetsWidgets.swift */; };
+		459CC3E22BC7CD10007CE7F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459CC3E12BC7CD10007CE7F1 /* Assets.xcassets */; };
+		459CC3E62BC7CD10007CE7F1 /* allWidgetsWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 459CC3D62BC7CD0F007CE7F1 /* allWidgetsWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		459CC3FE2BC7F359007CE7F1 /* CardSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3FD2BC7F359007CE7F1 /* CardSwipeView.swift */; };
+		459CC3FF2BC7F359007CE7F1 /* CardSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3FD2BC7F359007CE7F1 /* CardSwipeView.swift */; };
+		459CC4022BC804EB007CE7F1 /* ClockWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC4012BC804EB007CE7F1 /* ClockWidgets.swift */; };
+		459CC4032BC804EB007CE7F1 /* ClockWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC4012BC804EB007CE7F1 /* ClockWidgets.swift */; };
+		459CC4042BC80528007CE7F1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450729E22BC6920900F3F2D3 /* Colors.swift */; };
+		459CC4072BC80D36007CE7F1 /* CalendarWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC4062BC80D36007CE7F1 /* CalendarWidgets.swift */; };
+		459CC4082BC80D36007CE7F1 /* CalendarWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC4062BC80D36007CE7F1 /* CalendarWidgets.swift */; };
+		459CC40B2BC81444007CE7F1 /* PhotoWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC40A2BC81444007CE7F1 /* PhotoWidgets.swift */; };
+		459CC40C2BC81444007CE7F1 /* PhotoWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC40A2BC81444007CE7F1 /* PhotoWidgets.swift */; };
+		459CC40F2BC81BDD007CE7F1 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 459CC40E2BC81BDD007CE7F1 /* PopupView */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		459CC3E42BC7CD10007CE7F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 450729C12BC68FAA00F3F2D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 459CC3D52BC7CD0F007CE7F1;
+			remoteInfo = allWidgetsWidgetsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		459CC3EA2BC7CD10007CE7F1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				459CC3E62BC7CD10007CE7F1 /* allWidgetsWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		450729C92BC68FAA00F3F2D3 /* AllWidgets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllWidgets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +87,17 @@
 		459CC3CC2BC70F3C007CE7F1 /* WallsPaperDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallsPaperDetailScreen.swift; sourceTree = "<group>"; };
 		459CC3CE2BC7B613007CE7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		459CC3D02BC7BFF6007CE7F1 /* WidgetsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsScreen.swift; sourceTree = "<group>"; };
+		459CC3D62BC7CD0F007CE7F1 /* allWidgetsWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = allWidgetsWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		459CC3D82BC7CD0F007CE7F1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		459CC3DA2BC7CD0F007CE7F1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		459CC3DD2BC7CD0F007CE7F1 /* allWidgetsWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allWidgetsWidgetsBundle.swift; sourceTree = "<group>"; };
+		459CC3DF2BC7CD0F007CE7F1 /* allWidgetsWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allWidgetsWidgets.swift; sourceTree = "<group>"; };
+		459CC3E12BC7CD10007CE7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		459CC3E32BC7CD10007CE7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		459CC3FD2BC7F359007CE7F1 /* CardSwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSwipeView.swift; sourceTree = "<group>"; };
+		459CC4012BC804EB007CE7F1 /* ClockWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockWidgets.swift; sourceTree = "<group>"; };
+		459CC4062BC80D36007CE7F1 /* CalendarWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidgets.swift; sourceTree = "<group>"; };
+		459CC40A2BC81444007CE7F1 /* PhotoWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWidgets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +105,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				459CC40F2BC81BDD007CE7F1 /* PopupView in Frameworks */,
 				459CC3C82BC6BF52007CE7F1 /* CustomTextField in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		459CC3D32BC7CD0F007CE7F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				459CC3DB2BC7CD0F007CE7F1 /* SwiftUI.framework in Frameworks */,
+				459CC3D92BC7CD0F007CE7F1 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				450729CB2BC68FAA00F3F2D3 /* AllWidgets */,
+				459CC3DC2BC7CD0F007CE7F1 /* allWidgetsWidgets */,
+				459CC3D72BC7CD0F007CE7F1 /* Frameworks */,
 				450729CA2BC68FAA00F3F2D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				450729C92BC68FAA00F3F2D3 /* AllWidgets.app */,
+				459CC3D62BC7CD0F007CE7F1 /* allWidgetsWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,6 +240,7 @@
 		459CC3BF2BC6B71C007CE7F1 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				459CC3FD2BC7F359007CE7F1 /* CardSwipeView.swift */,
 				459CC3C02BC6B725007CE7F1 /* UI */,
 			);
 			path = Entity;
@@ -209,9 +274,56 @@
 		459CC3CF2BC7BFD5007CE7F1 /* WidgetsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				459CC4092BC81438007CE7F1 /* Photo */,
+				459CC4052BC80D2A007CE7F1 /* Calendar */,
+				459CC4002BC804DF007CE7F1 /* Clock */,
 				459CC3D02BC7BFF6007CE7F1 /* WidgetsScreen.swift */,
 			);
 			path = WidgetsScreen;
+			sourceTree = "<group>";
+		};
+		459CC3D72BC7CD0F007CE7F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				459CC3D82BC7CD0F007CE7F1 /* WidgetKit.framework */,
+				459CC3DA2BC7CD0F007CE7F1 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		459CC3DC2BC7CD0F007CE7F1 /* allWidgetsWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				459CC3DD2BC7CD0F007CE7F1 /* allWidgetsWidgetsBundle.swift */,
+				459CC3DF2BC7CD0F007CE7F1 /* allWidgetsWidgets.swift */,
+				459CC3E12BC7CD10007CE7F1 /* Assets.xcassets */,
+				459CC3E32BC7CD10007CE7F1 /* Info.plist */,
+			);
+			path = allWidgetsWidgets;
+			sourceTree = "<group>";
+		};
+		459CC4002BC804DF007CE7F1 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				459CC4012BC804EB007CE7F1 /* ClockWidgets.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
+		459CC4052BC80D2A007CE7F1 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				459CC4062BC80D36007CE7F1 /* CalendarWidgets.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		459CC4092BC81438007CE7F1 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				459CC40A2BC81444007CE7F1 /* PhotoWidgets.swift */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,18 +336,38 @@
 				450729C52BC68FAA00F3F2D3 /* Sources */,
 				450729C62BC68FAA00F3F2D3 /* Frameworks */,
 				450729C72BC68FAA00F3F2D3 /* Resources */,
+				459CC3EA2BC7CD10007CE7F1 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				459CC3E52BC7CD10007CE7F1 /* PBXTargetDependency */,
+			);
+			name = AllWidgets;
+			packageProductDependencies = (
+				459CC3C72BC6BF52007CE7F1 /* CustomTextField */,
+				459CC40E2BC81BDD007CE7F1 /* PopupView */,
+			);
+			productName = AllWidgets;
+			productReference = 450729C92BC68FAA00F3F2D3 /* AllWidgets.app */;
+			productType = "com.apple.product-type.application";
+		};
+		459CC3D52BC7CD0F007CE7F1 /* allWidgetsWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 459CC3E72BC7CD10007CE7F1 /* Build configuration list for PBXNativeTarget "allWidgetsWidgetsExtension" */;
+			buildPhases = (
+				459CC3D22BC7CD0F007CE7F1 /* Sources */,
+				459CC3D32BC7CD0F007CE7F1 /* Frameworks */,
+				459CC3D42BC7CD0F007CE7F1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AllWidgets;
-			packageProductDependencies = (
-				459CC3C72BC6BF52007CE7F1 /* CustomTextField */,
-			);
-			productName = AllWidgets;
-			productReference = 450729C92BC68FAA00F3F2D3 /* AllWidgets.app */;
-			productType = "com.apple.product-type.application";
+			name = allWidgetsWidgetsExtension;
+			productName = allWidgetsWidgetsExtension;
+			productReference = 459CC3D62BC7CD0F007CE7F1 /* allWidgetsWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -248,6 +380,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					450729C82BC68FAA00F3F2D3 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					459CC3D52BC7CD0F007CE7F1 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -263,12 +398,14 @@
 			mainGroup = 450729C02BC68FAA00F3F2D3;
 			packageReferences = (
 				459CC3C62BC6BF52007CE7F1 /* XCRemoteSwiftPackageReference "SwiftUI-Custom-TextField" */,
+				459CC40D2BC81BDD007CE7F1 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 450729CA2BC68FAA00F3F2D3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				450729C82BC68FAA00F3F2D3 /* AllWidgets */,
+				459CC3D52BC7CD0F007CE7F1 /* allWidgetsWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -284,6 +421,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		459CC3D42BC7CD0F007CE7F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				459CC3E22BC7CD10007CE7F1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -293,6 +438,9 @@
 			files = (
 				459CC3CB2BC70827007CE7F1 /* WallspaperScreen.swift in Sources */,
 				450729CF2BC68FAA00F3F2D3 /* ContentView.swift in Sources */,
+				459CC4072BC80D36007CE7F1 /* CalendarWidgets.swift in Sources */,
+				459CC3FE2BC7F359007CE7F1 /* CardSwipeView.swift in Sources */,
+				459CC40B2BC81444007CE7F1 /* PhotoWidgets.swift in Sources */,
 				459CC3BE2BC6B41A007CE7F1 /* SettingsScreen.swift in Sources */,
 				450729E32BC6920900F3F2D3 /* Colors.swift in Sources */,
 				450729E92BC6950B00F3F2D3 /* OnboardingScreen.swift in Sources */,
@@ -300,6 +448,7 @@
 				450729E62BC6940F00F3F2D3 /* MainScreen.swift in Sources */,
 				459CC3CD2BC70F3C007CE7F1 /* WallsPaperDetailScreen.swift in Sources */,
 				450729CD2BC68FAA00F3F2D3 /* AllWidgetsApp.swift in Sources */,
+				459CC4022BC804EB007CE7F1 /* ClockWidgets.swift in Sources */,
 				459CC3C22BC6B72D007CE7F1 /* CustomNavigationView.swift in Sources */,
 				450729EB2BC6959D00F3F2D3 /* OnboardingViewModel.swift in Sources */,
 				459CC3D12BC7BFF6007CE7F1 /* WidgetsScreen.swift in Sources */,
@@ -308,7 +457,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		459CC3D22BC7CD0F007CE7F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				459CC3DE2BC7CD0F007CE7F1 /* allWidgetsWidgetsBundle.swift in Sources */,
+				459CC4042BC80528007CE7F1 /* Colors.swift in Sources */,
+				459CC40C2BC81444007CE7F1 /* PhotoWidgets.swift in Sources */,
+				459CC3E02BC7CD0F007CE7F1 /* allWidgetsWidgets.swift in Sources */,
+				459CC4032BC804EB007CE7F1 /* ClockWidgets.swift in Sources */,
+				459CC3FF2BC7F359007CE7F1 /* CardSwipeView.swift in Sources */,
+				459CC4082BC80D36007CE7F1 /* CalendarWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		459CC3E52BC7CD10007CE7F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 459CC3D52BC7CD0F007CE7F1 /* allWidgetsWidgetsExtension */;
+			targetProxy = 459CC3E42BC7CD10007CE7F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		450729D52BC68FAC00F3F2D3 /* Debug */ = {
@@ -433,6 +604,7 @@
 		450729D82BC68FAC00F3F2D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -471,6 +643,7 @@
 		450729D92BC68FAC00F3F2D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -506,6 +679,60 @@
 			};
 			name = Release;
 		};
+		459CC3E82BC7CD10007CE7F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6QZ8MR9Z8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = allWidgetsWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = allWidgetsWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = allWidgets.AllWidgets.allWidgetsWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		459CC3E92BC7CD10007CE7F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6QZ8MR9Z8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = allWidgetsWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = allWidgetsWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = allWidgets.AllWidgets.allWidgetsWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -527,6 +754,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		459CC3E72BC7CD10007CE7F1 /* Build configuration list for PBXNativeTarget "allWidgetsWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				459CC3E82BC7CD10007CE7F1 /* Debug */,
+				459CC3E92BC7CD10007CE7F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -538,6 +774,14 @@
 				kind = branch;
 			};
 		};
+		459CC40D2BC81BDD007CE7F1 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -545,6 +789,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 459CC3C62BC6BF52007CE7F1 /* XCRemoteSwiftPackageReference "SwiftUI-Custom-TextField" */;
 			productName = CustomTextField;
+		};
+		459CC40E2BC81BDD007CE7F1 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 459CC40D2BC81BDD007CE7F1 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

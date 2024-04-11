@@ -66,5 +66,7 @@ struct TabBar: View {
             .frame(maxWidth: .infinity, alignment: .center)
             .padding(.bottom, -10)
         }
+        .background(.white)
+        .frame(maxWidth: .infinity, maxHeight: 70)
     }
 }

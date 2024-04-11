@@ -36,19 +36,22 @@ struct AllWidgetsApp: App {
                     VStack {
                         switch selectedTab {
                         case .wallpapers:
-                            VStack { }
+                            WallspaperScreen()
+                                .navigationTitle("Wallpaper")
                         case .widgets:
                             VStack { }
+                                .navigationTitle("AllWidgets")
                         case .settings:
                             SettingsScreen()
+                                .navigationTitle("Settings")
                         }
-                        
-                        TabBar(selectedTab: $selectedTab)
                     }
-                    .navigationTitle(selectedTab.rawValue.capitalized)
                     .navigationBarTitleDisplayMode(.inline)
+                    .overlay(
+                        TabBar(selectedTab: $selectedTab), alignment: .bottom
+                    )
+                    
                 }
-                
             case .Onboarding:
                 OnboardingScreen(onClose: {
                     route = .MainRoute

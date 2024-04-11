@@ -18,6 +18,8 @@ final class Colors {
     static var main_dark_gray_color: Color = Color(hex: "#8A8A8E")
     static var main_nav_color: Color = Color(hex: "#F9F9F9").opacity(0.79)
     static var main_nav_title_color: Color = Color(hex: "#053048")
+    static var dark_text_color: Color = Color(hex: "#0A0F45")
+    static var light_gray_color: Color = Color(hex: "#747480")
 }
 
 // MARK: - Extenstion

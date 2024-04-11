@@ -39,7 +39,7 @@ struct AllWidgetsApp: App {
                             WallspaperScreen()
                                 .navigationTitle("Wallpaper")
                         case .widgets:
-                            VStack { }
+                            WidgetsScreen()
                                 .navigationTitle("AllWidgets")
                         case .settings:
                             SettingsScreen()

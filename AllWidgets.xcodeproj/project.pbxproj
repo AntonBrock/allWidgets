@@ -24,6 +24,7 @@
 		459CC3C82BC6BF52007CE7F1 /* CustomTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 459CC3C72BC6BF52007CE7F1 /* CustomTextField */; };
 		459CC3CB2BC70827007CE7F1 /* WallspaperScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3CA2BC70827007CE7F1 /* WallspaperScreen.swift */; };
 		459CC3CD2BC70F3C007CE7F1 /* WallsPaperDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3CC2BC70F3C007CE7F1 /* WallsPaperDetailScreen.swift */; };
+		459CC3D12BC7BFF6007CE7F1 /* WidgetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CC3D02BC7BFF6007CE7F1 /* WidgetsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		459CC3CA2BC70827007CE7F1 /* WallspaperScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallspaperScreen.swift; sourceTree = "<group>"; };
 		459CC3CC2BC70F3C007CE7F1 /* WallsPaperDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallsPaperDetailScreen.swift; sourceTree = "<group>"; };
 		459CC3CE2BC7B613007CE7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		459CC3D02BC7BFF6007CE7F1 /* WidgetsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +120,8 @@
 		450729DC2BC6902500F3F2D3 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				459CC3C92BC70819007CE7F1 /* Wallspaper */,
+				459CC3CF2BC7BFD5007CE7F1 /* WidgetsScreen */,
+				459CC3C92BC70819007CE7F1 /* WallspaperScreen */,
 				459CC3BC2BC6B40F007CE7F1 /* SettingsScreen */,
 				459CC3B92BC6ADB4007CE7F1 /* TabBar */,
 				450729E72BC694F500F3F2D3 /* OnboardingScreen */,
@@ -194,13 +197,21 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		459CC3C92BC70819007CE7F1 /* Wallspaper */ = {
+		459CC3C92BC70819007CE7F1 /* WallspaperScreen */ = {
 			isa = PBXGroup;
 			children = (
 				459CC3CA2BC70827007CE7F1 /* WallspaperScreen.swift */,
 				459CC3CC2BC70F3C007CE7F1 /* WallsPaperDetailScreen.swift */,
 			);
-			path = Wallspaper;
+			path = WallspaperScreen;
+			sourceTree = "<group>";
+		};
+		459CC3CF2BC7BFD5007CE7F1 /* WidgetsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				459CC3D02BC7BFF6007CE7F1 /* WidgetsScreen.swift */,
+			);
+			path = WidgetsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 				450729CD2BC68FAA00F3F2D3 /* AllWidgetsApp.swift in Sources */,
 				459CC3C22BC6B72D007CE7F1 /* CustomNavigationView.swift in Sources */,
 				450729EB2BC6959D00F3F2D3 /* OnboardingViewModel.swift in Sources */,
+				459CC3D12BC7BFF6007CE7F1 /* WidgetsScreen.swift in Sources */,
 				459CC3C52BC6BD72007CE7F1 /* ContactUsScreen.swift in Sources */,
 				450729E12BC6912D00F3F2D3 /* LaunchScreen.swift in Sources */,
 			);

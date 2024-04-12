@@ -14,11 +14,37 @@ enum Route {
     case Onboarding
 }
 
+enum WidgetsSize: String {
+    case small
+    case medium
+}
+
 @main
 struct AllWidgetsApp: App {
+
+    enum SelectedWidgetPreview: String {
+        case Clock
+        case Calendar
+        case Photo
+    }
     
+    @State private var selectionWidget = 0
+    
+    @State private var savedClockWidget: TypeOfClockWidget?
+    @State private var savedCalendarWidget: TypeOfCalendarWidget?
+    @State private var savedPhotoWidget: TypeOfPhotoWidget?
+
     @State private var isNeedToPresentWidgetPreviewPopUP: Bool = false
+    
     @State private var selectedTab: Tab = .widgets
+    
+    @State private var selectedClockWidget: TypeOfClockWidget = .basic
+    @State private var selectedCalendarWidget: TypeOfCalendarWidget = .basic
+    @State private var selectedPhotoWidget: TypeOfPhotoWidget = .basic
+    
+    @State private var selectedSizeWidget: WidgetsSize = .small
+    @State private var selectedWidgetPreview: SelectedWidgetPreview = .Clock
+    
     @State var route: Route = .MainRoute
     
     var body: some Scene {
@@ -41,7 +67,23 @@ struct AllWidgetsApp: App {
                             WallspaperScreen()
                                 .navigationTitle("Wallpaper")
                         case .widgets:
-                            WidgetsScreen(isNeedToPresentWidgetPreviewPopUP: $isNeedToPresentWidgetPreviewPopUP)
+                            WidgetsScreen(isNeedToPresentWidgetPreviewPopUP: $isNeedToPresentWidgetPreviewPopUP, selectedWidgets: { clockWidget, calendarWidget, photoWidget in
+                                
+                                if let clockWidget = clockWidget {
+                                    selectedClockWidget = clockWidget
+                                    selectedWidgetPreview = .Clock
+                                }
+                                
+                                if let calendarWidget = calendarWidget {
+                                    selectedCalendarWidget = calendarWidget
+                                    selectedWidgetPreview = .Calendar
+                                }
+                                
+                                if let photoWidget = photoWidget {
+                                    selectedPhotoWidget = photoWidget
+                                    selectedWidgetPreview = .Photo
+                                }
+                            })
                                 .navigationTitle("AllWidgets")
                         case .settings:
                             SettingsScreen()
@@ -60,16 +102,83 @@ struct AllWidgetsApp: App {
                                     .foregroundColor(Colors.main_nav_title_color)
                                     .font(.system(size: 17,weight: .bold))
                                 
-                                
                                 Spacer()
                                 
-                                #warning("TODO: PreviewWidgets")
-                                Text("1")
+                                TabView(selection: $selectionWidget) {
+                                    ForEach(0..<previewWidget(selectedWidgetPreview: selectedWidgetPreview).count) { index in
+                                        VStack {
+                                            Image(previewWidget(selectedWidgetPreview: selectedWidgetPreview)[index])
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .cornerRadius(16)
+                                                .shadow(color: Color(hex: "ccd0f8").opacity(0.6), radius: 10, x: 2, y: 10)
+                                                .frame(maxWidth: .infinity, maxHeight: 158)
+                                        }
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.horizontal, 10)
+                                        .tag(index)
+                                    }
+                                }
+                                .tabViewStyle(.page(indexDisplayMode: .never))
+                                
+                                HStack(spacing: 30) {
+                                    Button {
+                                        if selectionWidget != 0 {
+                                            withAnimation {
+                                                selectionWidget -= 1
+                                            }
+                                        }
+                                    } label: {
+                                        Image("ic_preview_widget_to_the_left")
+                                            .resizable()
+                                            .frame(width: 24, height: 24)
+                                    }
+                                    .frame(maxHeight: .infinity, alignment: .bottom)
+                                    .transition(.opacity)
+//                                                .opacity(selectionWidget == 0 ? 0 : 1)
+                                    
+                                    Button {
+                                        if selectionWidget != 1 {
+                                            withAnimation {
+                                                selectionWidget += 1
+                                            }
+                                        }
+                                    } label: {
+                                        Image("ic_preview_widget_to_the_right")
+                                            .resizable()
+                                            .frame(width: 24, height: 24)
+                                    }
+                                    .frame(maxHeight: .infinity, alignment: .bottom)
+                                    .transition(.opacity)
+//                                                .opacity(selectionWidget == 1 ? 0 : 1)
+                                    
+                                }
+                                .frame(height: 24)
+                                .padding(.top, -30)
                                 
                                 Spacer()
                                 
                                 Button {
-                                    print("SEET!")
+                                    switch selectedWidgetPreview {
+                                    case .Clock:
+                                        saveSelectedSizeAndWidgetType(
+                                            size: selectedSizeWidget.rawValue,
+                                            type: selectedClockWidget.rawValue,
+                                            widget: selectedWidgetPreview.rawValue
+                                        )
+                                    case .Calendar:
+                                        saveSelectedSizeAndWidgetType(
+                                            size: selectedSizeWidget.rawValue,
+                                            type: selectedCalendarWidget.rawValue,
+                                            widget: selectedWidgetPreview.rawValue
+                                        )
+                                    case .Photo:
+                                        saveSelectedSizeAndWidgetType(
+                                            size: selectedSizeWidget.rawValue,
+                                            type: selectedPhotoWidget.rawValue,
+                                            widget: selectedWidgetPreview.rawValue
+                                        )
+                                    }
                                 } label: {
                                     Text("Set widgets")
                                         .font(.system(size: 17, weight: .bold))
@@ -100,6 +209,10 @@ struct AllWidgetsApp: App {
                         .cornerRadius(14)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 16)
+                        .onChange(of: selectionWidget) { newValue in
+                            selectedSizeWidget = newValue == 0 ? .small : .medium
+                        }
+                        
                     } customize: {
                         $0.backgroundColor(.black.opacity(0.5))
                     }
@@ -109,6 +222,45 @@ struct AllWidgetsApp: App {
                     route = .MainRoute
                 })
             }
+            
+        }
+    }
+    
+    private func previewWidget(selectedWidgetPreview: SelectedWidgetPreview) -> [String] {
+        switch selectedWidgetPreview {
+        case .Clock:
+            switch selectedClockWidget {
+            case .basic: return ["ic_clock_basic_preview-small", "ic_clock_basic_preview-large"]
+            case .halfOnHalf: return ["ic_clock_halfOnHalf_preview-small", "ic_clock_halfOnHalf_preview-large"]
+            case .simple: return ["ic_clock_simple_preview-small", "ic_clock_simple_preview-large"]
+            case .bigger: return ["ic_clock_bigger_preview-small", "ic_clock_bigger_preview-large"]
+            }
+        case .Calendar:
+            switch selectedCalendarWidget {
+            case .basic: return ["ic_calendar_basic_preview-small", "ic_calendar_basic_preview-large"]
+            case .halfOnHalf: return ["ic_calendar_halfOnHalf_preview-small", "ic_calendar_halfOnHalf_preview-large"]
+            case .simple: return ["ic_calendar_simple_preview-small", "ic_calendar_simple_preview-large"]
+            case .bigger: return ["ic_calendar_bigger_preview-small", "ic_calendar_bigger_preview-large"]
+            }
+        case .Photo:
+            switch selectedPhotoWidget {
+            case .basic: return ["ic_photo_basic_preview-small", "ic_photo_basic_preview-large"]
+            case .halfOnHalf: return ["ic_photo_halfOnHalf_preview-small", "ic_photo_halfOnHalf_preview-large"]
+            case .simple: return ["ic_photo_simple_preview-small", "ic_photo_simple_preview-large"]
+            case .space: return ["ic_photo_space_preview-small", "ic_photo_space_preview-large"]
+            case .bigger: return ["ic_photo_bigger_preview-small", "ic_photo_bigger_preview-large"]
+            }
+        }
+    }
+    
+    private func saveSelectedSizeAndWidgetType(size: String, type: String, widget: String) {
+        if let userDefaults = UserDefaults(suiteName: "group.allWidgets.AllWidgets") {
+            var savedWidgets: [[String: Any]] = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] ?? []
+
+            let widgetDict: [String: Any] = ["size": size, "type": type, "widget": widget]
+            savedWidgets.append(widgetDict)
+            
+            userDefaults.set(savedWidgets, forKey: "savedWidget")
         }
     }
 }

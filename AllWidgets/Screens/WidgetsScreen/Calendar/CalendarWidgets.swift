@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum TypeOfCalendarWidget {
+enum TypeOfCalendarWidget: String {
     case basic
     case halfOnHalf
     case simple
@@ -16,12 +16,13 @@ enum TypeOfCalendarWidget {
 
 struct CalendarWidgets: View {
     
-    enum SizeOfWidget {
+    enum SizeOfWidget: String {
         case small
         case medium
     }
     
-    @Binding var type: TypeOfCalendarWidget
+//    @Binding var type: TypeOfCalendarWidget
+    @State var type: TypeOfCalendarWidget
     @State var size: SizeOfWidget = .small
     
     var body: some View {
@@ -89,5 +90,5 @@ struct CalendarWidgets: View {
 }
 
 #Preview {
-    CalendarWidgets(type: .constant(.basic))
+    CalendarWidgets(type: .basic)
 }

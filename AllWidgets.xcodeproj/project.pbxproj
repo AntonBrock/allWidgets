@@ -98,6 +98,8 @@
 		459CC4012BC804EB007CE7F1 /* ClockWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockWidgets.swift; sourceTree = "<group>"; };
 		459CC4062BC80D36007CE7F1 /* CalendarWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidgets.swift; sourceTree = "<group>"; };
 		459CC40A2BC81444007CE7F1 /* PhotoWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoWidgets.swift; sourceTree = "<group>"; };
+		459CC4102BC92767007CE7F1 /* AllWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AllWidgets.entitlements; sourceTree = "<group>"; };
+		459CC4112BC928F8007CE7F1 /* allWidgetsWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = allWidgetsWidgetsExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		450729C02BC68FAA00F3F2D3 = {
 			isa = PBXGroup;
 			children = (
+				459CC4112BC928F8007CE7F1 /* allWidgetsWidgetsExtension.entitlements */,
 				450729CB2BC68FAA00F3F2D3 /* AllWidgets */,
 				459CC3DC2BC7CD0F007CE7F1 /* allWidgetsWidgets */,
 				459CC3D72BC7CD0F007CE7F1 /* Frameworks */,
@@ -144,6 +147,7 @@
 		450729CB2BC68FAA00F3F2D3 /* AllWidgets */ = {
 			isa = PBXGroup;
 			children = (
+				459CC4102BC92767007CE7F1 /* AllWidgets.entitlements */,
 				459CC3CE2BC7B613007CE7F1 /* Info.plist */,
 				459CC3BF2BC6B71C007CE7F1 /* Entity */,
 				450729DC2BC6902500F3F2D3 /* Screens */,
@@ -607,6 +611,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AllWidgets/AllWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllWidgets/Preview Content\"";
@@ -646,6 +651,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AllWidgets/AllWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllWidgets/Preview Content\"";
@@ -684,6 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = allWidgetsWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6QZ8MR9Z8;
@@ -711,6 +718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = allWidgetsWidgetsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6QZ8MR9Z8;

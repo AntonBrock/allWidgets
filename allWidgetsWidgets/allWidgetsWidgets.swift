@@ -40,6 +40,10 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct allWidgetsWidgetsEntryView : View {
+    @AppStorage("savedWidgetSize") private var savedWidgetSize: String?
+    @AppStorage("savedWidgetType") private var savedWidgetType: String?
+    @AppStorage("savedWidget") private var savedWidget: String?
+    
     var entry: Provider.Entry
 
     var body: some View {
@@ -50,6 +54,14 @@ struct allWidgetsWidgetsEntryView : View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hex: "ccd0f8"))
+        .onAppear {
+            if let userDefaults = UserDefaults(suiteName: "group.allWidgets.AllWidgets") {
+                
+                if let savedWidgets = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] {
+                        print(savedWidgets)
+                }
+            }
+        }
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum TypeOfPhotoWidget {
+enum TypeOfPhotoWidget: String {
     case basic
     case halfOnHalf
     case simple
@@ -17,12 +17,13 @@ enum TypeOfPhotoWidget {
 
 struct PhotoWidgets: View {
     
-    enum SizeOfWidget {
+    enum SizeOfWidget: String {
         case small
         case medium
     }
     
-    @Binding var type: TypeOfPhotoWidget
+//    @Binding var type: TypeOfPhotoWidget
+    @State var type: TypeOfPhotoWidget
     @State var size: SizeOfWidget = .small
     
     var body: some View {
@@ -97,6 +98,6 @@ struct PhotoWidgets: View {
 }
 
 #Preview {
-    PhotoWidgets(type: .constant(.basic))
+    PhotoWidgets(type: .basic)
 }
 

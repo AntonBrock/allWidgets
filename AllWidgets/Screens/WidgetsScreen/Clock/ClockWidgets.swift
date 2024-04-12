@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum TypeOfClockWidget {
+enum TypeOfClockWidget: String {
     case basic
     case halfOnHalf
     case simple
@@ -16,12 +16,12 @@ enum TypeOfClockWidget {
 
 struct ClockWidgets: View {
     
-    enum SizeOfWidget {
+    enum SizeOfWidget: String {
         case small
         case medium
     }
     
-    @Binding var type: TypeOfClockWidget
+    @State var type: TypeOfClockWidget = .basic
     @State var size: SizeOfWidget = .small
     
     var body: some View {
@@ -89,5 +89,5 @@ struct ClockWidgets: View {
 }
 
 #Preview {
-    ClockWidgets(type: .constant(.basic))
+    ClockWidgets(type: .basic)
 }

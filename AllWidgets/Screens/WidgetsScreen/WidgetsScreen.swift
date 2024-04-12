@@ -19,11 +19,14 @@ struct WidgetsScreen: View {
     }
     
     @Binding var isNeedToPresentWidgetPreviewPopUP: Bool
+    @State var selectedWidgets: (_ :TypeOfClockWidget?, _ :TypeOfCalendarWidget?, _: TypeOfPhotoWidget?) -> Void
     
     @State private var selectedSegment = 0
     @State private var selectedTypeOfClockWidget: TypeOfClockWidget = .basic
     @State private var selectedTypeOfCalendarWidget: TypeOfCalendarWidget = .basic
     @State private var selectedTypeOfPhotoWidget: TypeOfPhotoWidget = .basic
+    
+    @State private var savedWidgetsFromStorage: [[String: Any]] = [[:]]
     
 //    @State var cards: [ExampleCardView] = [ExampleCardView(index: 0), ExampleCardView(index: 1), ExampleCardView(index: 3)]
 
@@ -93,12 +96,20 @@ struct WidgetsScreen: View {
                 
                 VStack {
                     if selectedSegment == 0 {
-                       configureTypesWidgets()
+                        configureTypesWidgets()
                     } else {
-                        Text("Segment 2 ")
+                        configrureSavedWidgets(savedWidgets: savedWidgetsFromStorage)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .onAppear {
+                    if let userDefaults = UserDefaults(suiteName: "group.allWidgets.AllWidgets") {
+                        
+                        if let savedWidgets = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] {
+                            self.savedWidgetsFromStorage = savedWidgets
+                        }
+                    }
+                }
             }
         }
         .scrollIndicators(.hidden)
@@ -107,6 +118,7 @@ struct WidgetsScreen: View {
         .padding(.bottom, 90)
     }
     
+    // MARK: - Set Widget
     @ViewBuilder
     private func configureTypesWidgets() -> some View {
         VStack {
@@ -120,6 +132,7 @@ struct WidgetsScreen: View {
                     Button(action: {
                         withAnimation {
                             isNeedToPresentWidgetPreviewPopUP.toggle()
+                            selectedWidgets(selectedTypeOfClockWidget, nil, nil)
                         }
                     }, label: {
                         RoundedRectangle(cornerRadius: 8)
@@ -134,7 +147,8 @@ struct WidgetsScreen: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                ClockWidgets(type: $selectedTypeOfClockWidget, size: .medium)
+                ClockWidgets(type: selectedTypeOfClockWidget, size: .medium)
+                    .id(selectedTypeOfClockWidget)
                     .onTapGesture {
                         nextTypeOfClockWidget()
                     }
@@ -149,7 +163,10 @@ struct WidgetsScreen: View {
                         .foregroundStyle(Colors.dark_text_color)
 
                     Button(action: {
-                        print("set")
+                        withAnimation {
+                            isNeedToPresentWidgetPreviewPopUP.toggle()
+                            selectedWidgets(nil, selectedTypeOfCalendarWidget, nil)
+                        }
                     }, label: {
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Colors.main_active_border_color)
@@ -163,7 +180,8 @@ struct WidgetsScreen: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                CalendarWidgets(type: $selectedTypeOfCalendarWidget, size: .medium)
+                CalendarWidgets(type: selectedTypeOfCalendarWidget, size: .medium)
+                    .id(selectedTypeOfCalendarWidget)
                     .onTapGesture {
                         nextTypeOfCalendarkWidget()
                     }
@@ -178,7 +196,10 @@ struct WidgetsScreen: View {
                         .foregroundStyle(Colors.dark_text_color)
 
                     Button(action: {
-                        print("set")
+                        withAnimation {
+                            isNeedToPresentWidgetPreviewPopUP.toggle()
+                            selectedWidgets(nil, nil, selectedTypeOfPhotoWidget)
+                        }
                     }, label: {
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Colors.main_active_border_color)
@@ -192,7 +213,8 @@ struct WidgetsScreen: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                PhotoWidgets(type: $selectedTypeOfPhotoWidget, size: .medium)
+                PhotoWidgets(type: selectedTypeOfPhotoWidget, size: .medium)
+                    .id(selectedTypeOfPhotoWidget)
                     .onTapGesture {
                         nextTypeOfPhotoWidget()
                     }
@@ -202,6 +224,77 @@ struct WidgetsScreen: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
+    // MARK: - Get Saved Widgets
+    @ViewBuilder
+    private func configrureSavedWidgets(savedWidgets: [[String: Any]]) -> some View {
+        VStack {
+            if savedWidgets.isEmpty {
+                Text("Not saved any widgets. Let's add some!")
+                    .foregroundStyle(Colors.main_dark_gray_color)
+                    .font(.system(size: 17, weight: .semibold))
+                    .padding(.top, 26)
+            } else {
+                ForEach(savedWidgets.indices, id: \.self) { index in
+                    VStack {
+                        HStack {
+                            Text("\(savedWidgets[index]["widget"] as? String ?? "") \(savedWidgets[index]["widget"] as? String ?? "" == "Clock" ? getSelectedClockNumberWidget(TypeOfClockWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .bigger) : savedWidgets[index]["widget"] as? String ?? "" == "Calendar" ? getSelectedCalendarNumberWidget(TypeOfCalendarWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .basic) : getSelectedPhotoNumberWidget(TypeOfPhotoWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .basic))")
+                                .font(.system(size: 17, weight: .bold))
+                                .foregroundStyle(Colors.dark_text_color)
+                            
+                            Button(action: {
+                                deleteItem(index: index)
+                            }, label: {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Colors.main_active_border_color)
+                                    .frame(width: 61, height: 26)
+                                    .overlay {
+                                        Text("DELETE")
+                                            .foregroundStyle(.white)
+                                            .font(.system(size: 13, weight: .bold))
+                                    }
+                            })
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        VStack {
+                            if let widget = savedWidgetsFromStorage[index]["widget"] as? String {
+                                switch widget {
+                                case "Clock":
+                                    ClockWidgets(
+                                        type: TypeOfClockWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .bigger,
+                                        size: ClockWidgets.SizeOfWidget(rawValue: savedWidgets[index]["size"] as? String ?? "") ?? .medium
+                                    )
+                                case "Calendar":
+                                    CalendarWidgets(
+                                        type: TypeOfCalendarWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .basic,
+                                        size: CalendarWidgets.SizeOfWidget(rawValue: savedWidgets[index]["size"] as? String ?? "") ?? .medium
+                                    )
+                                default:
+                                    PhotoWidgets(
+                                        type: TypeOfPhotoWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .basic,
+                                        size: PhotoWidgets.SizeOfWidget(rawValue: savedWidgets[index]["size"] as? String ?? "") ?? .medium
+                                    )
+                                }
+                            }
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+        }
+        .frame(maxHeight: .infinity)
+    }
+    
+    private func deleteItem(index: Int) {
+        savedWidgetsFromStorage.remove(at: index)
+        
+        if let userDefaults = UserDefaults(suiteName: "group.allWidgets.AllWidgets") {
+            var savedWidgets: [[String: Any]] = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] ?? []
+
+            savedWidgets = savedWidgetsFromStorage
+            userDefaults.set(savedWidgets, forKey: "savedWidget")
+        }
+    }
     private func nextTypeOfClockWidget() {
         switch selectedTypeOfClockWidget {
         case .basic:
@@ -243,32 +336,65 @@ struct WidgetsScreen: View {
         }
     }
     
-    private func getSelectedClockNumberWidget() -> Int {
-        switch selectedTypeOfClockWidget {
-        case .basic: return 1
-        case .halfOnHalf: return 2
-        case .simple: return 3
-        case .bigger: return 4
+    private func getSelectedClockNumberWidget(_ type: TypeOfClockWidget? = nil) -> Int {
+        if type == nil {
+            switch selectedTypeOfClockWidget {
+            case .basic: return 1
+            case .halfOnHalf: return 2
+            case .simple: return 3
+            case .bigger: return 4
+            }
+        } else {
+            switch type {
+            case .basic: return 1
+            case .halfOnHalf: return 2
+            case .simple: return 3
+            case .bigger: return 4
+            case .none: return 0
+            }
         }
     }
     
-    private func getSelectedCalendarNumberWidget() -> Int {
-        switch selectedTypeOfCalendarWidget {
-        case .basic: return 1
-        case .halfOnHalf: return 2
-        case .simple: return 3
-        case .bigger: return 4
+    private func getSelectedCalendarNumberWidget(_ type: TypeOfCalendarWidget? = nil) -> Int {
+        if type == nil {
+            switch selectedTypeOfCalendarWidget {
+            case .basic: return 1
+            case .halfOnHalf: return 2
+            case .simple: return 3
+            case .bigger: return 4
+            }
+        } else {
+            switch type {
+            case .basic: return 1
+            case .halfOnHalf: return 2
+            case .simple: return 3
+            case .bigger: return 4
+            case .none: return 0
+            }
         }
     }
     
-    private func getSelectedPhotoNumberWidget() -> Int {
-        switch selectedTypeOfPhotoWidget {
-        case .basic: return 1
-        case .halfOnHalf: return 2
-        case .simple: return 3
-        case .space: return 4
-        case .bigger: return 5
+    private func getSelectedPhotoNumberWidget(_ type: TypeOfPhotoWidget? = nil) -> Int {
+        if type == nil {
+            switch selectedTypeOfPhotoWidget {
+            case .basic: return 1
+            case .halfOnHalf: return 2
+            case .simple: return 3
+            case .space: return 4
+            case .bigger: return 5
+            }
+        } else {
+            switch type {
+            case .basic: return 1
+            case .halfOnHalf: return 2
+            case .simple: return 3
+            case .space: return 4
+            case .bigger: return 5
+            case .none:
+                return 0
+            }
         }
+      
     }
 }
 
@@ -286,32 +412,3 @@ struct PopupView: View {
         .background(Color.blue)
     }
 }
-
-//struct ExampleCardView: View {
-//    var index: Int
-//    var tagId: UUID = UUID()
-//
-//    var body: some View {
-//
-//        RoundedRectangle(cornerRadius: 20)
-//            .fill(Color.white)
-//            .overlay(
-//                VStack(spacing: 10) {
-//                    Image(systemName: "heart.fill")
-//                        .font(.system(size: 50))
-//                        .foregroundColor(.pink)
-//                    Text("Example Card \(index)")
-//                        .font(.title)
-//                        .bold()
-//                    Text("This is an example card with some beautiful UI.")
-//                        .multilineTextAlignment(.center)
-//                        .font(.body)
-//                        .foregroundColor(.gray)
-//                }
-//                .padding()
-//            )
-//            .frame(maxWidth: .infinity, minHeight: 158, maxHeight: 158)
-//            .shadow(color: .gray, radius: 5)
-//            .offset(y: index == 0 ? 30 : index == 1 ? 15 : index == 2 ? 10 : 0)
-//    }
-//}

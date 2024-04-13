@@ -431,6 +431,4 @@ struct ClockWidget: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
-
-
 }

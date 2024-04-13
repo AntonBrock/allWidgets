@@ -50,6 +50,8 @@
 		45ADAC692BCAA66B004FCE06 /* ClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADAC672BCAA66B004FCE06 /* ClockWidget.swift */; };
 		45ADAC6A2BCAABBC004FCE06 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450729E22BC6920900F3F2D3 /* Colors.swift */; };
 		45ADAC6B2BCAABBC004FCE06 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450729E22BC6920900F3F2D3 /* Colors.swift */; };
+		45ADAC712BCB0F2D004FCE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 450729D02BC68FAC00F3F2D3 /* Assets.xcassets */; };
+		45ADAC722BCB0F2D004FCE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 450729D02BC68FAC00F3F2D3 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -524,6 +526,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45ADAC712BCB0F2D004FCE06 /* Assets.xcassets in Resources */,
 				45ADAC412BCA5640004FCE06 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,6 +535,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45ADAC722BCB0F2D004FCE06 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

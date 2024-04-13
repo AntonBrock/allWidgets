@@ -29,41 +29,111 @@ struct MyWidgetView: View {
                 ClockWidget(date: $entry.date, size: $entry.size, type: $entry.type)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             case "Calendar": Text("Calendar")
-            case "Photo": Text("Photo")
+            case "Photo": photoWidget()
             default:
                 Text("1. Long press the widget\n2. Tap edit widget\n3. Choose your widget from the saved list")
                     .font(.subheadline.weight(.light))
             }
         }
         .containerBackground(for: .widget) {
+            switch entry.widget {
+            case "Clock":
+                switch entry.type {
+                case "basic": Colors.main_active_border_color.opacity(0.3)
+                case "bigger": Colors.purple_main_color
+                case "halfOnHalf":
+                    if entry.size == "small" {
+                        VStack(spacing: 0) {
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                            .edgesIgnoringSafeArea(.all)
+                            
+                            Color.white
+                        }
+                    } else {
+                        HStack(spacing: 0) {
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                            .frame(maxWidth: 120)
+                            
+                            Color.white
+                        }
+                    }
+                default: Color.white
+                }
+            case "Photo": Color.white
+            case "Calendar": Color.white
+            default: Color.white
+            }
+            
+        }
+    }
+    
+    // MARK: - PhotoWidget
+    @ViewBuilder
+    private func photoWidget() -> some View {
+        VStack {
             switch entry.type {
-            case "basic": Colors.main_active_border_color.opacity(0.3)
-            case "bigger": Colors.purple_main_color
+            case "basic":
+                if entry.size == "small" {
+                    Image("ic_photo_basic_preview-small")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                } else {
+                    Image("ic_photo_basic_preview-large")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                }
+            case "bigger":
+                if entry.size == "small" {
+                    Image("ic_photo_bigger_preview-small")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                } else {
+                    Image("ic_photo_bigger_preview-large")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                }
             case "halfOnHalf":
                 if entry.size == "small" {
-                    VStack(spacing: 0) {
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                        .edgesIgnoringSafeArea(.all)
-                        
-                        Color.white
-                    }
+                    Image("ic_photo_halfOnHalf_preview-small")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
                 } else {
-                    HStack(spacing: 0) {
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                        .frame(maxWidth: 120)
-                        
-                        Color.white
-                    }
+                    Image("ic_photo_halfOnHalf_preview-large")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
                 }
-            default: Color.white
+            case "simple":
+                if entry.size == "small" {
+                    Image("ic_photo_simple_preview-small")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                } else {
+                    Image("ic_photo_simple_preview-large")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                }
+            case "space":
+                if entry.size == "small" {
+                    Image("ic_photo_space_preview-small")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                } else {
+                    Image("ic_photo_space_preview-large")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                }
+            default:
+                Image("ic_photo_space_preview-small")
+                    .aspectRatio(contentMode: .fill)
+                    .padding(.bottom, -15)
             }
         }
     }

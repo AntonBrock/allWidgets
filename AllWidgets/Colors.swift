@@ -20,6 +20,7 @@ final class Colors {
     static var main_nav_title_color: Color = Color(hex: "#053048")
     static var dark_text_color: Color = Color(hex: "#0A0F45")
     static var light_gray_color: Color = Color(hex: "#747480")
+    static var time_dark_color: Color = Color(hex: "#47495E")
 }
 
 // MARK: - Extenstion

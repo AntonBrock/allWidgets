@@ -27,10 +27,7 @@ class IntentHandler: INExtension, MyWidgetConfigurationIntentHandling {
             return curent
         }
         
-        // Create a collection with the array of cryptos.
-        let collection = INObjectCollection(items: cryptos)
-        
-        // Return the collections
+        let collection = INObjectCollection(items: cryptos)        
         return collection
     }
     

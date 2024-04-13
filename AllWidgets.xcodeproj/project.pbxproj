@@ -46,6 +46,10 @@
 		45ADAC612BCA5F99004FCE06 /* AssetsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADAC602BCA5F99004FCE06 /* AssetsFetcher.swift */; };
 		45ADAC622BCA5F99004FCE06 /* AssetsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADAC602BCA5F99004FCE06 /* AssetsFetcher.swift */; };
 		45ADAC632BCA5FA3004FCE06 /* AssetsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADAC602BCA5F99004FCE06 /* AssetsFetcher.swift */; };
+		45ADAC682BCAA66B004FCE06 /* ClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADAC672BCAA66B004FCE06 /* ClockWidget.swift */; };
+		45ADAC692BCAA66B004FCE06 /* ClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ADAC672BCAA66B004FCE06 /* ClockWidget.swift */; };
+		45ADAC6A2BCAABBC004FCE06 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450729E22BC6920900F3F2D3 /* Colors.swift */; };
+		45ADAC6B2BCAABBC004FCE06 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450729E22BC6920900F3F2D3 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +124,7 @@
 		45ADAC5D2BCA5A37004FCE06 /* MyWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyWidgetExtension.entitlements; sourceTree = "<group>"; };
 		45ADAC5E2BCA5A43004FCE06 /* IntentHandler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntentHandler.entitlements; sourceTree = "<group>"; };
 		45ADAC602BCA5F99004FCE06 /* AssetsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsFetcher.swift; sourceTree = "<group>"; };
+		45ADAC672BCAA66B004FCE06 /* ClockWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +358,9 @@
 		45ADAC392BCA563F004FCE06 /* MyWidget */ = {
 			isa = PBXGroup;
 			children = (
+				45ADAC662BCAA65D004FCE06 /* PhotoWidgets */,
+				45ADAC652BCAA651004FCE06 /* CalendarWidgets */,
+				45ADAC642BCAA64A004FCE06 /* ClockWidgets */,
 				45ADAC3A2BCA563F004FCE06 /* MyWidgetBundle.swift */,
 				45ADAC3C2BCA563F004FCE06 /* MyWidget.swift */,
 				45ADAC602BCA5F99004FCE06 /* AssetsFetcher.swift */,
@@ -371,6 +379,28 @@
 				45ADAC552BCA58EA004FCE06 /* Info.plist */,
 			);
 			path = IntentHandler;
+			sourceTree = "<group>";
+		};
+		45ADAC642BCAA64A004FCE06 /* ClockWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				45ADAC672BCAA66B004FCE06 /* ClockWidget.swift */,
+			);
+			path = ClockWidgets;
+			sourceTree = "<group>";
+		};
+		45ADAC652BCAA651004FCE06 /* CalendarWidgets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CalendarWidgets;
+			sourceTree = "<group>";
+		};
+		45ADAC662BCAA65D004FCE06 /* PhotoWidgets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PhotoWidgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +553,7 @@
 				450729E32BC6920900F3F2D3 /* Colors.swift in Sources */,
 				450729E92BC6950B00F3F2D3 /* OnboardingScreen.swift in Sources */,
 				459CC3BB2BC6ADBA007CE7F1 /* TabBar.swift in Sources */,
+				45ADAC682BCAA66B004FCE06 /* ClockWidget.swift in Sources */,
 				450729E62BC6940F00F3F2D3 /* MainScreen.swift in Sources */,
 				459CC3CD2BC70F3C007CE7F1 /* WallsPaperDetailScreen.swift in Sources */,
 				450729CD2BC68FAA00F3F2D3 /* AllWidgetsApp.swift in Sources */,
@@ -541,8 +572,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				45ADAC4B2BCA565F004FCE06 /* MyWidget.intentdefinition in Sources */,
+				45ADAC6A2BCAABBC004FCE06 /* Colors.swift in Sources */,
 				45ADAC3B2BCA563F004FCE06 /* MyWidgetBundle.swift in Sources */,
 				45ADAC622BCA5F99004FCE06 /* AssetsFetcher.swift in Sources */,
+				45ADAC692BCAA66B004FCE06 /* ClockWidget.swift in Sources */,
 				45ADAC3D2BCA563F004FCE06 /* MyWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45ADAC5C2BCA592B004FCE06 /* MyWidget.intentdefinition in Sources */,
+				45ADAC6B2BCAABBC004FCE06 /* Colors.swift in Sources */,
 				45ADAC632BCA5FA3004FCE06 /* AssetsFetcher.swift in Sources */,
 				45ADAC542BCA58EA004FCE06 /* IntentHandler.swift in Sources */,
 			);

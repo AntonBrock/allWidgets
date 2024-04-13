@@ -28,10 +28,48 @@ struct MyWidgetView: View {
                 Text(entry.myText)
                     .font(.subheadline.weight(.light))
             } else {
-                Text(entry.type ?? "")
+                switch entry.widget {
+                case "Clock": 
+                    ClockWidget(date: entry.date, size: entry.size ?? "0", type: entry.type ?? "basic")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                case "Calendar": Text("Calendar")
+                case "Photo": Text("Photo")
+                default:
+                    Text(entry.myText)
+                        .font(.subheadline.weight(.light))
+                }
             }
         }
-        .containerBackground(for: .widget) { }
+        .containerBackground(for: .widget) {
+            switch entry.type {
+            case "basic": Colors.main_active_border_color.opacity(0.3)
+            case "halfOnHalf":
+                if entry.size == "small" {
+                    VStack(spacing: 0) {
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        .edgesIgnoringSafeArea(.all)
+                        
+                        Color.white
+                    }
+                } else {
+                    HStack(spacing: 0) {
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        .frame(maxWidth: 120)
+                        
+                        Color.white
+                    }
+                }
+            default: Color.white
+            }
+        }
     }
 }
 
@@ -67,7 +105,7 @@ struct MyWidgetTimelineProvider: IntentTimelineProvider {
                 date: Date(),
                 id: currentItem?.id,
                 widget: currentItem?.widget,
-                size: currentItem?.size,
+                size: context.family == .systemSmall ? "small" : context.family == .systemMedium ? "medium" : "small",
                 type: currentItem?.type,
                 myText: "1. Long press the widget\n2. Tap edit widget\n3. Choose your widget from the saved list"
             )
@@ -112,5 +150,17 @@ struct MyWidget: Widget {
             .systemSmall,
             .systemMedium
         ])
+        .disableContentMarginsIfNeeded()
+    }
+}
+
+// MARK: - WidgetConfiguration
+extension WidgetConfiguration {
+    func disableContentMarginsIfNeeded() -> some WidgetConfiguration {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return self.contentMarginsDisabled()
+        } else {
+            return self
+        }
     }
 }

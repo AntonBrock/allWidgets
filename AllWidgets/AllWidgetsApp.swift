@@ -135,7 +135,6 @@ struct AllWidgetsApp: App {
                                     }
                                     .frame(maxHeight: .infinity, alignment: .bottom)
                                     .transition(.opacity)
-//                                                .opacity(selectionWidget == 0 ? 0 : 1)
                                     
                                     Button {
                                         if selectionWidget != 1 {
@@ -150,7 +149,6 @@ struct AllWidgetsApp: App {
                                     }
                                     .frame(maxHeight: .infinity, alignment: .bottom)
                                     .transition(.opacity)
-//                                                .opacity(selectionWidget == 1 ? 0 : 1)
                                     
                                 }
                                 .frame(height: 24)
@@ -166,18 +164,24 @@ struct AllWidgetsApp: App {
                                             type: selectedClockWidget.rawValue,
                                             widget: selectedWidgetPreview.rawValue
                                         )
+                                        
+                                        isNeedToPresentWidgetPreviewPopUP.toggle()
                                     case .Calendar:
                                         saveSelectedSizeAndWidgetType(
                                             size: selectedSizeWidget.rawValue,
                                             type: selectedCalendarWidget.rawValue,
                                             widget: selectedWidgetPreview.rawValue
                                         )
+                                        
+                                        isNeedToPresentWidgetPreviewPopUP.toggle()
                                     case .Photo:
                                         saveSelectedSizeAndWidgetType(
                                             size: selectedSizeWidget.rawValue,
                                             type: selectedPhotoWidget.rawValue,
                                             widget: selectedWidgetPreview.rawValue
                                         )
+                                        
+                                        isNeedToPresentWidgetPreviewPopUP.toggle()
                                     }
                                 } label: {
                                     Text("Set widgets")
@@ -215,6 +219,8 @@ struct AllWidgetsApp: App {
                         
                     } customize: {
                         $0.backgroundColor(.black.opacity(0.5))
+                        .closeOnTapOutside(true)
+                        .closeOnTap(false)
                     }
                 }
             case .Onboarding:

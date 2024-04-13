@@ -8,7 +8,7 @@
 import Foundation
 
 struct Asset {
-    let id: String
+    let id: Int
     let widget: String
     let type: String
     let size: String
@@ -21,7 +21,7 @@ struct AssetFetcher {
         
         return widgetsData.compactMap { widgetData in
             return Asset(
-                id: widgetData["id"] as? String ?? "", 
+                id: widgetData["id"] as? Int ?? 0,
                 widget: widgetData["widget"] as? String ?? "",
                 type: widgetData["type"] as? String ?? "",
                 size: widgetData["size"] as? String ?? ""

@@ -16,10 +16,11 @@ class IntentHandler: INExtension, MyWidgetConfigurationIntentHandling {
         let cryptos = assets.map { asset in
             
             let curent = Current(
-                identifier: asset.id,
+                identifier: String(asset.id),
                 display: "\(asset.widget) \(getNumberOfType(type: asset.type))"
             )
             
+//            curent.id = (asset.id) as NSNumber
             curent.widget = asset.widget
             curent.size = asset.size
             curent.type = asset.type

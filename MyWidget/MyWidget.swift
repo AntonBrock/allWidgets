@@ -10,39 +10,35 @@ import SwiftUI
 import Intents
 
 struct MyWidgetEntry: TimelineEntry {
-    let date: Date
-    let id: String?
+    var date: Date
+    let id: Int?
     let widget: String?
-    let size: String?
-    let type: String?
+    var size: String?
+    var type: String?
     let myText: String
 }
 
 struct MyWidgetView: View {
     
-    let entry: MyWidgetEntry
+    @State var entry: MyWidgetEntry
     
     var body: some View {
         VStack {
-            if entry.widget == nil {
-                Text(entry.myText)
+            switch entry.widget {
+            case "Clock":
+                ClockWidget(date: $entry.date, size: $entry.size, type: $entry.type)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            case "Calendar": Text("Calendar")
+            case "Photo": Text("Photo")
+            default:
+                Text("1. Long press the widget\n2. Tap edit widget\n3. Choose your widget from the saved list")
                     .font(.subheadline.weight(.light))
-            } else {
-                switch entry.widget {
-                case "Clock": 
-                    ClockWidget(date: entry.date, size: entry.size ?? "0", type: entry.type ?? "basic")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                case "Calendar": Text("Calendar")
-                case "Photo": Text("Photo")
-                default:
-                    Text(entry.myText)
-                        .font(.subheadline.weight(.light))
-                }
             }
         }
         .containerBackground(for: .widget) {
             switch entry.type {
             case "basic": Colors.main_active_border_color.opacity(0.3)
+            case "bigger": Colors.purple_main_color
             case "halfOnHalf":
                 if entry.size == "small" {
                     VStack(spacing: 0) {
@@ -88,7 +84,7 @@ struct MyWidgetTimelineProvider: IntentTimelineProvider {
             widget: nil,
             size: nil,
             type: nil,
-            myText: "AllWidgets"
+            myText: "All Widgets"
         )
         completion(entry)
     }
@@ -99,17 +95,17 @@ struct MyWidgetTimelineProvider: IntentTimelineProvider {
         
         Task {
             let data = AssetFetcher.loadWidgetData(suiteName: "group.allWidgets.AllWidgets")
-            let currentItem = data.first(where: { $0.id == configuration.selectedWidget?.identifier ?? "0" })
+            let id = Int(configuration.selectedWidget?.identifier ?? "0") ?? 0
             
             let entry = MyWidgetEntry(
                 date: Date(),
-                id: currentItem?.id,
-                widget: currentItem?.widget,
+                id: id,
+                widget: data[id].widget,
                 size: context.family == .systemSmall ? "small" : context.family == .systemMedium ? "medium" : "small",
-                type: currentItem?.type,
+                type: data[id].type,
                 myText: "1. Long press the widget\n2. Tap edit widget\n3. Choose your widget from the saved list"
             )
-            
+
             executeTimelineCompletion(completion, timelineEntry: entry)
         }
     }
@@ -117,9 +113,8 @@ struct MyWidgetTimelineProvider: IntentTimelineProvider {
     func executeTimelineCompletion(_ completion: @escaping (Timeline<MyWidgetEntry>) -> (),
                                        timelineEntry: MyWidgetEntry) {
             
-            // Next fetch happens 15 minutes later
             let nextUpdate = Calendar.current.date(
-                byAdding: DateComponents(minute: 15),
+                byAdding: DateComponents(minute: 1),
                 to: Date()
             )!
             

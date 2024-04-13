@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ClockWidget: View {
     
-    var date: Date
-    var size: String
-    var type: String
+    @Binding var date: Date
+    @Binding var size: String?
+    @Binding var type: String?
     
     var body: some View {
         VStack {
@@ -27,6 +27,12 @@ struct ClockWidget: View {
                     prepareViewForHalfOnHalfSmall(date: date)
                 } else {
                     prepareViewForHalfOnHalfMedium(date: date)
+                }
+            case "bigger":
+                if size == "small" {
+                    prepareViewForBiggerSmall(date: date)
+                } else {
+                    prepareViewForBiggerMedium(date: date)
                 }
             default:
                 if size == "small" {
@@ -306,5 +312,125 @@ struct ClockWidget: View {
             .padding(.leading, -40)
         }
     }
+    
+    // MARK: - Bigger
+    @ViewBuilder
+    func prepareViewForBiggerSmall(date: Date) -> some View {
+        var formattedDateTime: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            return dateFormatter.string(from: date)
+        }
+        
+        var formattedDateTimeZone: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "a"
+            return dateFormatter.string(from: date)
+        }
+        var formattedDateDay: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMMdd"
+            return dateFormatter.string(from: date)
+        }
+        var formattedDateYear: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "YYYY"
+            return dateFormatter.string(from: date)
+        }
+
+        VStack(spacing: 0) {
+            Text(formattedDateTime)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(.white)
+                .font(.system(size: 32, weight: .bold))
+                .fixedSize(horizontal: true, vertical: true)
+                .padding(.bottom, 5)
+            
+            HStack(spacing: 12) {
+                Text(formattedDateTimeZone)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 14, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+                
+                Text(formattedDateDay)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 14, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+                
+                Text(formattedDateYear)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 14, weight: .bold))
+                    .fixedSize(horizontal: true , vertical: true)
+                    .textCase(.uppercase)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+
+    func prepareViewForBiggerMedium(date: Date) -> some View {
+        var formattedDateTime: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            return dateFormatter.string(from: date)
+        }
+        
+        var formattedDateTimeZone: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "a"
+            return dateFormatter.string(from: date)
+        }
+        var formattedDateDay: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMMdd"
+            return dateFormatter.string(from: date)
+        }
+        var formattedDateYear: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "YYYY"
+            return dateFormatter.string(from: date)
+        }
+
+        return VStack(spacing: 0) {
+            Text(formattedDateTime)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(.white)
+                .font(.system(size: 48, weight: .bold))
+                .fixedSize(horizontal: true, vertical: true)
+                .padding(.bottom, 5)
+            
+            HStack(spacing: 12) {
+                Text(formattedDateTimeZone)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 26, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+                
+                Text(formattedDateDay)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 26, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+                
+                Text(formattedDateYear)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 26, weight: .bold))
+                    .fixedSize(horizontal: true , vertical: true)
+                    .textCase(.uppercase)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+
 
 }

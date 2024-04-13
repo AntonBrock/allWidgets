@@ -103,12 +103,12 @@ struct WidgetsScreen: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .onAppear {
-                    if let userDefaults = UserDefaults(suiteName: "group.allWidgets.AllWidgets") {
-                        
-                        if let savedWidgets = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] {
-                            self.savedWidgetsFromStorage = savedWidgets
-                        }
-                    }
+                    getSavedWidgets()
+                }
+            }
+            .onChange(of: selectedSegment) { newValue in
+                if newValue == 1 {
+                    getSavedWidgets()
                 }
             }
         }
@@ -116,6 +116,17 @@ struct WidgetsScreen: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 16)
         .padding(.bottom, 90)
+    }
+    
+    private func getSavedWidgets() {
+        if let userDefaults = UserDefaults(suiteName: "group.allWidgets.AllWidgets") {
+            if let savedWidgets = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] {
+                self.savedWidgetsFromStorage = savedWidgets
+                
+                let sorted = self.savedWidgetsFromStorage.sorted { ($0["id"] as? Int ?? 0) < ($1["id"] as? Int ?? 0) }
+                self.savedWidgetsFromStorage = sorted
+            }
+        }
     }
     
     // MARK: - Set Widget

@@ -166,38 +166,38 @@ struct WidgetsScreen: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            // Calendar Widget
-            VStack {
-                HStack {
-                    Text("Calendar \(getSelectedCalendarNumberWidget())")
-                        .font(.system(size: 17, weight: .bold))
-                        .foregroundStyle(Colors.dark_text_color)
-
-                    Button(action: {
-                        withAnimation {
-                            isNeedToPresentWidgetPreviewPopUP.toggle()
-                            selectedWidgets(nil, selectedTypeOfCalendarWidget, nil)
-                        }
-                    }, label: {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Colors.main_active_border_color)
-                            .frame(width: 41, height: 26)
-                            .overlay {
-                                Text("Set")
-                                    .foregroundStyle(.white)
-                                    .font(.system(size: 13, weight: .bold))
-                            }
-                    })
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
-                CalendarWidgets(type: selectedTypeOfCalendarWidget, size: .medium)
-                    .id(selectedTypeOfCalendarWidget)
-                    .onTapGesture {
-                        nextTypeOfCalendarkWidget()
-                    }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            #warning("TODO: Если нужно будет юзать Calendar тип виджета")
+//            VStack {
+//                HStack {
+//                    Text("Calendar \(getSelectedCalendarNumberWidget())")
+//                        .font(.system(size: 17, weight: .bold))
+//                        .foregroundStyle(Colors.dark_text_color)
+//
+//                    Button(action: {
+//                        withAnimation {
+//                            isNeedToPresentWidgetPreviewPopUP.toggle()
+//                            selectedWidgets(nil, selectedTypeOfCalendarWidget, nil)
+//                        }
+//                    }, label: {
+//                        RoundedRectangle(cornerRadius: 8)
+//                            .fill(Colors.main_active_border_color)
+//                            .frame(width: 41, height: 26)
+//                            .overlay {
+//                                Text("Set")
+//                                    .foregroundStyle(.white)
+//                                    .font(.system(size: 13, weight: .bold))
+//                            }
+//                    })
+//                }
+//                .frame(maxWidth: .infinity, alignment: .leading)
+//                
+//                CalendarWidgets(type: selectedTypeOfCalendarWidget, size: .medium)
+//                    .id(selectedTypeOfCalendarWidget)
+//                    .onTapGesture {
+//                        nextTypeOfCalendarkWidget()
+//                    }
+//            }
+//            .frame(maxWidth: .infinity, alignment: .leading)
             
             // Photo Widget
             VStack {
@@ -275,11 +275,11 @@ struct WidgetsScreen: View {
                                         type: TypeOfClockWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .bigger,
                                         size: ClockWidgets.SizeOfWidget(rawValue: savedWidgets[index]["size"] as? String ?? "") ?? .medium
                                     )
-                                case "Calendar":
-                                    CalendarWidgets(
-                                        type: TypeOfCalendarWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .basic,
-                                        size: CalendarWidgets.SizeOfWidget(rawValue: savedWidgets[index]["size"] as? String ?? "") ?? .medium
-                                    )
+//                                case "Calendar":
+//                                    CalendarWidgets(
+//                                        type: TypeOfCalendarWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .basic,
+//                                        size: CalendarWidgets.SizeOfWidget(rawValue: savedWidgets[index]["size"] as? String ?? "") ?? .medium
+//                                    )
                                 default:
                                     PhotoWidgets(
                                         type: TypeOfPhotoWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .basic,

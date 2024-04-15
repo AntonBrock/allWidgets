@@ -360,8 +360,6 @@
 		45ADAC392BCA563F004FCE06 /* MyWidget */ = {
 			isa = PBXGroup;
 			children = (
-				45ADAC662BCAA65D004FCE06 /* PhotoWidgets */,
-				45ADAC652BCAA651004FCE06 /* CalendarWidgets */,
 				45ADAC642BCAA64A004FCE06 /* ClockWidgets */,
 				45ADAC3A2BCA563F004FCE06 /* MyWidgetBundle.swift */,
 				45ADAC3C2BCA563F004FCE06 /* MyWidget.swift */,
@@ -389,20 +387,6 @@
 				45ADAC672BCAA66B004FCE06 /* ClockWidget.swift */,
 			);
 			path = ClockWidgets;
-			sourceTree = "<group>";
-		};
-		45ADAC652BCAA651004FCE06 /* CalendarWidgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CalendarWidgets;
-			sourceTree = "<group>";
-		};
-		45ADAC662BCAA65D004FCE06 /* PhotoWidgets */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PhotoWidgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

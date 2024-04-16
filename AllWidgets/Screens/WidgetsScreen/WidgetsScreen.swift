@@ -18,7 +18,6 @@ struct WidgetsScreen: View {
         case step
     }
     
-    @Binding var isNeedToPresentWidgetPreviewPopUP: Bool
     @State var selectedWidgets: (_ :TypeOfClockWidget?, _ :TypeOfCalendarWidget?, _: TypeOfPhotoWidget?) -> Void
     
     @State private var selectedSegment = 0
@@ -72,7 +71,6 @@ struct WidgetsScreen: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.top, -10)
-                        
                     }
                     
                     Spacer()
@@ -142,7 +140,6 @@ struct WidgetsScreen: View {
 
                     Button(action: {
                         withAnimation {
-                            isNeedToPresentWidgetPreviewPopUP.toggle()
                             selectedWidgets(selectedTypeOfClockWidget, nil, nil)
                         }
                     }, label: {
@@ -208,7 +205,6 @@ struct WidgetsScreen: View {
 
                     Button(action: {
                         withAnimation {
-                            isNeedToPresentWidgetPreviewPopUP.toggle()
                             selectedWidgets(nil, nil, selectedTypeOfPhotoWidget)
                         }
                     }, label: {

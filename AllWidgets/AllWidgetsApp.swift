@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 import PopupView
 
 enum Route {
@@ -67,7 +68,7 @@ struct AllWidgetsApp: App {
                             WallspaperScreen()
                                 .navigationTitle("Wallpaper")
                         case .widgets:
-                            WidgetsScreen(isNeedToPresentWidgetPreviewPopUP: $isNeedToPresentWidgetPreviewPopUP, selectedWidgets: { clockWidget, calendarWidget, photoWidget in
+                            WidgetsScreen(selectedWidgets: { clockWidget, calendarWidget, photoWidget in
                                 
                                 if let clockWidget = clockWidget {
                                     selectedClockWidget = clockWidget
@@ -94,6 +95,23 @@ struct AllWidgetsApp: App {
                     .overlay(
                         TabBar(selectedTab: $selectedTab), alignment: .bottom
                     )
+                    .onChange(of: isNeedToPresentWidgetPreviewPopUP) { _ in
+                        withAnimation {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                selectionWidget = 0
+                            }
+                        }
+                    }
+                    .onChange(of: selectedClockWidget) { newValue in
+                        withAnimation {
+                            isNeedToPresentWidgetPreviewPopUP.toggle()
+                        }
+                    }
+                    .onChange(of: selectedPhotoWidget) { newValue in
+                        withAnimation {
+                            isNeedToPresentWidgetPreviewPopUP.toggle()
+                        }
+                    }
                     .popup(isPresented: $isNeedToPresentWidgetPreviewPopUP) {
                         VStack {
                             VStack {
@@ -105,18 +123,9 @@ struct AllWidgetsApp: App {
                                 Spacer()
                                 
                                 TabView(selection: $selectionWidget) {
-                                    ForEach(0..<previewWidget(selectedWidgetPreview: selectedWidgetPreview).count) { index in
-                                        VStack {
-                                            Image(previewWidget(selectedWidgetPreview: selectedWidgetPreview)[index])
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .cornerRadius(16)
-                                                .shadow(color: Color(hex: "ccd0f8").opacity(0.6), radius: 10, x: 2, y: 10)
-                                                .frame(maxWidth: .infinity, maxHeight: 158)
-                                        }
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.horizontal, 10)
-                                        .tag(index)
+                                    ForEach(0..<2) { index in
+                                        getPreviewImages(index: index)
+                                            .tag(index)
                                     }
                                 }
                                 .tabViewStyle(.page(indexDisplayMode: .never))
@@ -165,7 +174,9 @@ struct AllWidgetsApp: App {
                                             widget: selectedWidgetPreview.rawValue
                                         )
                                         
-                                        isNeedToPresentWidgetPreviewPopUP.toggle()
+                                        withAnimation {
+                                            isNeedToPresentWidgetPreviewPopUP.toggle()
+                                        }
                                     case .Calendar:
                                         saveSelectedSizeAndWidgetType(
                                             size: selectedSizeWidget.rawValue,
@@ -173,7 +184,9 @@ struct AllWidgetsApp: App {
                                             widget: selectedWidgetPreview.rawValue
                                         )
                                         
-                                        isNeedToPresentWidgetPreviewPopUP.toggle()
+                                        withAnimation {
+                                            isNeedToPresentWidgetPreviewPopUP.toggle()
+                                        }                                    
                                     case .Photo:
                                         saveSelectedSizeAndWidgetType(
                                             size: selectedSizeWidget.rawValue,
@@ -181,7 +194,9 @@ struct AllWidgetsApp: App {
                                             widget: selectedWidgetPreview.rawValue
                                         )
                                         
-                                        isNeedToPresentWidgetPreviewPopUP.toggle()
+                                        withAnimation {
+                                            isNeedToPresentWidgetPreviewPopUP.toggle()
+                                        }
                                     }
                                 } label: {
                                     Text("Set widgets")
@@ -213,9 +228,11 @@ struct AllWidgetsApp: App {
                         .cornerRadius(14)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 16)
-                        .onChange(of: selectionWidget) { newValue in
-                            selectedSizeWidget = newValue == 0 ? .small : .medium
-                        }
+                        
+//                        Если нужно будет контролировать размер выбранного Widget
+//                        .onChange(of: selectionWidget) { newValue in
+//                            selectedSizeWidget = newValue == 0 ? .small : .medium
+//                        }
                         
                     } customize: {
                         $0.backgroundColor(.black.opacity(0.5))
@@ -228,11 +245,25 @@ struct AllWidgetsApp: App {
                     route = .MainRoute
                 })
             }
-            
         }
     }
     
-    private func previewWidget(selectedWidgetPreview: SelectedWidgetPreview) -> [String] {
+    @ViewBuilder
+    private func getPreviewImages(index: Int) -> some View {
+        VStack {
+            Image(previewWidget(selectedWidgetPreview: selectedWidgetPreview,
+                                selectedClockWidget: selectedClockWidget)[index])
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(16)
+                .shadow(color: Color(hex: "ccd0f8").opacity(0.6), radius: 10, x: 2, y: 10)
+                .frame(maxWidth: .infinity, maxHeight: 158)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal, 10)
+    }
+    
+    private func previewWidget(selectedWidgetPreview: SelectedWidgetPreview, selectedClockWidget: TypeOfClockWidget) -> [String] {
         switch selectedWidgetPreview {
         case .Clock:
             switch selectedClockWidget {

@@ -14,9 +14,9 @@
             filePath = "AllWidgets/AllWidgetsApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
-            landmarkName = "saveSelectedSizeAndWidgetType(size:type:widget:)"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
+            landmarkName = "previewWidget(selectedWidgetPreview:selectedClockWidget:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,8 +46,8 @@
             filePath = "AllWidgets/Screens/WidgetsScreen/WidgetsScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "deleteItem(index:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,10 +62,26 @@
             filePath = "AllWidgets/Screens/WidgetsScreen/WidgetsScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "deleteItem(index:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "036E04B4-4677-4AF7-AFB3-580C40412941"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AllWidgets/AllWidgetsApp.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

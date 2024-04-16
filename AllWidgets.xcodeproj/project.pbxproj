@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		450729CD2BC68FAA00F3F2D3 /* AllWidgetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450729CC2BC68FAA00F3F2D3 /* AllWidgetsApp.swift */; };
-		450729CF2BC68FAA00F3F2D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450729CE2BC68FAA00F3F2D3 /* ContentView.swift */; };
 		450729D12BC68FAC00F3F2D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 450729D02BC68FAC00F3F2D3 /* Assets.xcassets */; };
 		450729D42BC68FAC00F3F2D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 450729D32BC68FAC00F3F2D3 /* Preview Assets.xcassets */; };
 		450729DE2BC6902F00F3F2D3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450729DD2BC6902F00F3F2D3 /* Launch Screen.storyboard */; };
@@ -89,7 +88,6 @@
 /* Begin PBXFileReference section */
 		450729C92BC68FAA00F3F2D3 /* AllWidgets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllWidgets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		450729CC2BC68FAA00F3F2D3 /* AllWidgetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWidgetsApp.swift; sourceTree = "<group>"; };
-		450729CE2BC68FAA00F3F2D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		450729D02BC68FAC00F3F2D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		450729D32BC68FAC00F3F2D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		450729DD2BC6902F00F3F2D3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 				450729DC2BC6902500F3F2D3 /* Screens */,
 				450729DB2BC6902200F3F2D3 /* ViewModels */,
 				450729CC2BC68FAA00F3F2D3 /* AllWidgetsApp.swift */,
-				450729CE2BC68FAA00F3F2D3 /* ContentView.swift */,
 				450729D02BC68FAC00F3F2D3 /* Assets.xcassets */,
 				450729E22BC6920900F3F2D3 /* Colors.swift */,
 				450729D22BC68FAC00F3F2D3 /* Preview Content */,
@@ -523,7 +520,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				459CC3CB2BC70827007CE7F1 /* WallspaperScreen.swift in Sources */,
-				450729CF2BC68FAA00F3F2D3 /* ContentView.swift in Sources */,
 				459CC4072BC80D36007CE7F1 /* CalendarWidgets.swift in Sources */,
 				45ADAC4A2BCA565F004FCE06 /* MyWidget.intentdefinition in Sources */,
 				459CC3FE2BC7F359007CE7F1 /* CardSwipeView.swift in Sources */,

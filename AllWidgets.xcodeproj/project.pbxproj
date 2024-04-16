@@ -51,6 +51,8 @@
 		45ADAC6B2BCAABBC004FCE06 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450729E22BC6920900F3F2D3 /* Colors.swift */; };
 		45ADAC712BCB0F2D004FCE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 450729D02BC68FAC00F3F2D3 /* Assets.xcassets */; };
 		45ADAC722BCB0F2D004FCE06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 450729D02BC68FAC00F3F2D3 /* Assets.xcassets */; };
+		45B47E452BCE9D060049C01A /* PlaceholderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B47E442BCE9D060049C01A /* PlaceholderCardView.swift */; };
+		45B47E472BCE9D1E0049C01A /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B47E462BCE9D1E0049C01A /* PopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,8 @@
 		45ADAC5E2BCA5A43004FCE06 /* IntentHandler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IntentHandler.entitlements; sourceTree = "<group>"; };
 		45ADAC602BCA5F99004FCE06 /* AssetsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsFetcher.swift; sourceTree = "<group>"; };
 		45ADAC672BCAA66B004FCE06 /* ClockWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockWidget.swift; sourceTree = "<group>"; };
+		45B47E442BCE9D060049C01A /* PlaceholderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderCardView.swift; sourceTree = "<group>"; };
+		45B47E462BCE9D1E0049C01A /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +307,7 @@
 		459CC3CF2BC7BFD5007CE7F1 /* WidgetsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				45B47E432BCE9CF30049C01A /* Entity */,
 				459CC4092BC81438007CE7F1 /* Photo */,
 				459CC4052BC80D2A007CE7F1 /* Calendar */,
 				459CC4002BC804DF007CE7F1 /* Clock */,
@@ -376,6 +381,15 @@
 				45ADAC672BCAA66B004FCE06 /* ClockWidget.swift */,
 			);
 			path = ClockWidgets;
+			sourceTree = "<group>";
+		};
+		45B47E432BCE9CF30049C01A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				45B47E442BCE9D060049C01A /* PlaceholderCardView.swift */,
+				45B47E462BCE9D1E0049C01A /* PopupView.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +535,7 @@
 			files = (
 				459CC3CB2BC70827007CE7F1 /* WallspaperScreen.swift in Sources */,
 				459CC4072BC80D36007CE7F1 /* CalendarWidgets.swift in Sources */,
+				45B47E452BCE9D060049C01A /* PlaceholderCardView.swift in Sources */,
 				45ADAC4A2BCA565F004FCE06 /* MyWidget.intentdefinition in Sources */,
 				459CC3FE2BC7F359007CE7F1 /* CardSwipeView.swift in Sources */,
 				459CC40B2BC81444007CE7F1 /* PhotoWidgets.swift in Sources */,
@@ -540,6 +555,7 @@
 				459CC3D12BC7BFF6007CE7F1 /* WidgetsScreen.swift in Sources */,
 				459CC3C52BC6BD72007CE7F1 /* ContactUsScreen.swift in Sources */,
 				450729E12BC6912D00F3F2D3 /* LaunchScreen.swift in Sources */,
+				45B47E472BCE9D1E0049C01A /* PopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

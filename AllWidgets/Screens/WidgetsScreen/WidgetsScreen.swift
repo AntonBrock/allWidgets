@@ -27,7 +27,6 @@ struct WidgetsScreen: View {
     
     @State private var savedWidgetsFromStorage: [[String: Any]] = [[:]]
 
-
     var body: some View {
         ScrollView(.vertical) {
             VStack {
@@ -266,11 +265,6 @@ struct WidgetsScreen: View {
                                         type: TypeOfClockWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .bigger,
                                         size: ClockWidgets.SizeOfWidget(rawValue: savedWidgets[index]["size"] as? String ?? "") ?? .medium
                                     )
-//                                case "Calendar":
-//                                    CalendarWidgets(
-//                                        type: TypeOfCalendarWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .basic,
-//                                        size: CalendarWidgets.SizeOfWidget(rawValue: savedWidgets[index]["size"] as? String ?? "") ?? .medium
-//                                    )
                                 default:
                                     PhotoWidgets(
                                         type: TypeOfPhotoWidget(rawValue: savedWidgets[index]["type"] as? String ?? "") ?? .basic,
@@ -397,36 +391,5 @@ struct WidgetsScreen: View {
                 return 0
             }
         }
-      
-    }
-}
-
-struct PlaceholderCardView : View {
-    let color: Color
-
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(color)
-                .cornerRadius(16)
-                .frame(maxWidth: .infinity, minHeight: 158, maxHeight: 158)
-                .padding(.top, 16)
-        }
-        .shadow(radius: 6)
-    }
-}
-
-struct PopupView: View {
-    var body: some View {
-        VStack {
-            Text("This is a Popup")
-                .font(.title)
-                .foregroundColor(.white)
-                .padding()
-            Spacer()
-        }
-        .frame(maxWidth: .infinity, maxHeight: 170)
-        .padding(.horizontal, 17)
-        .background(Color.blue)
     }
 }

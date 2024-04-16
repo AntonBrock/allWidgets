@@ -73,16 +73,28 @@ struct AllWidgetsApp: App {
                                 if let clockWidget = clockWidget {
                                     selectedClockWidget = clockWidget
                                     selectedWidgetPreview = .Clock
+                                   
+                                    withAnimation {
+                                        isNeedToPresentWidgetPreviewPopUP.toggle()
+                                    }
                                 }
                                 
                                 if let calendarWidget = calendarWidget {
                                     selectedCalendarWidget = calendarWidget
                                     selectedWidgetPreview = .Calendar
+                                    
+                                    withAnimation {
+                                        isNeedToPresentWidgetPreviewPopUP.toggle()
+                                    }
                                 }
                                 
                                 if let photoWidget = photoWidget {
                                     selectedPhotoWidget = photoWidget
                                     selectedWidgetPreview = .Photo
+                                    
+                                    withAnimation {
+                                        isNeedToPresentWidgetPreviewPopUP.toggle()
+                                    }
                                 }
                             })
                                 .navigationTitle("AllWidgets")
@@ -100,16 +112,6 @@ struct AllWidgetsApp: App {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 selectionWidget = 0
                             }
-                        }
-                    }
-                    .onChange(of: selectedClockWidget) { newValue in
-                        withAnimation {
-                            isNeedToPresentWidgetPreviewPopUP.toggle()
-                        }
-                    }
-                    .onChange(of: selectedPhotoWidget) { newValue in
-                        withAnimation {
-                            isNeedToPresentWidgetPreviewPopUP.toggle()
                         }
                     }
                     .popup(isPresented: $isNeedToPresentWidgetPreviewPopUP) {

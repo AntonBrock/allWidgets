@@ -387,16 +387,16 @@ struct WidgetsScreen: View {
             case .basic: return 1
             case .halfOnHalf: return 2
             case .simple: return 3
-            case .space: return 4
-            case .bigger: return 5
+            case .bigger: return 4
+            case .space: return 5
             }
         } else {
             switch type {
             case .basic: return 1
             case .halfOnHalf: return 2
             case .simple: return 3
-            case .space: return 4
-            case .bigger: return 5
+            case .bigger: return 4
+            case .space: return 5
             case .none:
                 return 0
             }

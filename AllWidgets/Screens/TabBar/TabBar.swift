@@ -64,9 +64,9 @@ struct TabBar: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .center)
-            .padding(.bottom, -10)
+            .padding(.bottom, 15)
         }
         .background(.white)
-        .frame(maxWidth: .infinity, maxHeight: 70)
+        .frame(maxWidth: .infinity, maxHeight: 30)
     }
 }

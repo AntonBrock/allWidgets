@@ -106,7 +106,7 @@ struct ClockWidget: View {
                     .fill(.white)
                     .frame(width: 56, height: 56)
                     .overlay(
-                        Text(formattedHour)
+                        Text(formattedMinute)
                             .foregroundColor(Colors.main_active_border_color)
                             .font(.system(size: 26, weight: .bold))
                     )
@@ -173,7 +173,7 @@ struct ClockWidget: View {
                     .fill(.white)
                     .frame(width: 93, height: 88)
                     .overlay(
-                        Text(formattedHour)
+                        Text(formattedMinute)
                             .foregroundColor(Colors.main_active_border_color)
                             .font(.system(size: 46, weight: .bold))
                     )

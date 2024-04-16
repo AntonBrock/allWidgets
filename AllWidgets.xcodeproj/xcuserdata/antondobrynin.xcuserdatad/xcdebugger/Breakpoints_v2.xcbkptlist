@@ -30,8 +30,8 @@
             filePath = "AllWidgets/Screens/WidgetsScreen/Clock/ClockWidgets.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "getPreviewImage(type:and:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "AllWidgets/Screens/WidgetsScreen/WidgetsScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "deleteItem(index:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "AllWidgets/Screens/WidgetsScreen/WidgetsScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "deleteItem(index:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -26,8 +26,7 @@ struct WidgetsScreen: View {
     @State private var selectedTypeOfPhotoWidget: TypeOfPhotoWidget = .basic
     
     @State private var savedWidgetsFromStorage: [[String: Any]] = [[:]]
-    
-//    @State var cards: [ExampleCardView] = [ExampleCardView(index: 0), ExampleCardView(index: 1), ExampleCardView(index: 3)]
+
 
     var body: some View {
         ScrollView(.vertical) {
@@ -155,47 +154,28 @@ struct WidgetsScreen: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                ClockWidgets(type: selectedTypeOfClockWidget, size: .medium)
-                    .id(selectedTypeOfClockWidget)
-                    .onTapGesture {
-                        nextTypeOfClockWidget()
-                    }
+                ZStack {
+                    PlaceholderCardView(color: Color(hex: "ccd0f8"))
+                        .offset(x: 0, y: -40)
+                        .scaleEffect(-0.90)
+                        .padding(.horizontal, 16)
+
+                    PlaceholderCardView(color: Color(hex: "ccd0f8"))
+                        .offset(x: 0, y: -20)
+                        .scaleEffect(-0.95)
+                        .padding(.horizontal, 16)
+                    
+                    ClockWidgets(type: selectedTypeOfClockWidget, size: .medium)
+                        .id(selectedTypeOfClockWidget)
+                        .onTapGesture {
+                            nextTypeOfClockWidget()
+                        }
+                }
+                .offset(x: 0, y: 0)
+                .padding(.top, -20)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            
-            #warning("TODO: Если нужно будет юзать Calendar тип виджета")
-//            VStack {
-//                HStack {
-//                    Text("Calendar \(getSelectedCalendarNumberWidget())")
-//                        .font(.system(size: 17, weight: .bold))
-//                        .foregroundStyle(Colors.dark_text_color)
-//
-//                    Button(action: {
-//                        withAnimation {
-//                            isNeedToPresentWidgetPreviewPopUP.toggle()
-//                            selectedWidgets(nil, selectedTypeOfCalendarWidget, nil)
-//                        }
-//                    }, label: {
-//                        RoundedRectangle(cornerRadius: 8)
-//                            .fill(Colors.main_active_border_color)
-//                            .frame(width: 41, height: 26)
-//                            .overlay {
-//                                Text("Set")
-//                                    .foregroundStyle(.white)
-//                                    .font(.system(size: 13, weight: .bold))
-//                            }
-//                    })
-//                }
-//                .frame(maxWidth: .infinity, alignment: .leading)
-//                
-//                CalendarWidgets(type: selectedTypeOfCalendarWidget, size: .medium)
-//                    .id(selectedTypeOfCalendarWidget)
-//                    .onTapGesture {
-//                        nextTypeOfCalendarkWidget()
-//                    }
-//            }
-//            .frame(maxWidth: .infinity, alignment: .leading)
-            
+
             // Photo Widget
             VStack {
                 HStack {
@@ -220,13 +200,28 @@ struct WidgetsScreen: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                PhotoWidgets(type: selectedTypeOfPhotoWidget, size: .medium)
-                    .id(selectedTypeOfPhotoWidget)
-                    .onTapGesture {
-                        nextTypeOfPhotoWidget()
-                    }
+                ZStack {
+                    PlaceholderCardView(color: Color(hex: "ccd0f8"))
+                        .offset(x: 0, y: -40)
+                        .scaleEffect(-0.90)
+                        .padding(.horizontal, 16)
+
+                    PlaceholderCardView(color: Color(hex: "ccd0f8"))
+                        .offset(x: 0, y: -20)
+                        .scaleEffect(-0.95)
+                        .padding(.horizontal, 16)
+                    
+                    PhotoWidgets(type: selectedTypeOfPhotoWidget, size: .medium)
+                        .id(selectedTypeOfPhotoWidget)
+                        .onTapGesture {
+                            nextTypeOfPhotoWidget()
+                        }
+                }
+                .offset(x: 0, y: 0)
+                .padding(.top, -20)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.top, 32)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -302,6 +297,7 @@ struct WidgetsScreen: View {
             userDefaults.set(savedWidgets, forKey: "savedWidget")
         }
     }
+    
     private func nextTypeOfClockWidget() {
         switch selectedTypeOfClockWidget {
         case .basic:
@@ -402,6 +398,21 @@ struct WidgetsScreen: View {
             }
         }
       
+    }
+}
+
+struct PlaceholderCardView : View {
+    let color: Color
+
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .fill(color)
+                .cornerRadius(16)
+                .frame(maxWidth: .infinity, minHeight: 158, maxHeight: 158)
+                .padding(.top, 16)
+        }
+        .shadow(radius: 6)
     }
 }
 

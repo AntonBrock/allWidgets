@@ -31,10 +31,9 @@ struct ClockWidgets: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .cornerRadius(16)
-                    .shadow(color: Color(hex: "ccd0f8").opacity(0.6), radius: 10, x: 2, y: 10)
             }
             .frame(maxWidth: .infinity, minHeight: 158, maxHeight: 158)
-            .padding(.top, 16)
+            .padding(.top, 32)
             
             Spacer()
         }

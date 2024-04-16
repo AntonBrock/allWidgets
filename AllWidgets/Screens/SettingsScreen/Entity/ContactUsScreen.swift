@@ -17,9 +17,19 @@ struct ContactUsScreen: View {
     @State private var email: String = ""
     @State private var message = "Enter your message"
     
+    @State private var errorEmail = "Wrong E-mail type"
+    @State private var errorName = "Name is empty"
+    @State private var errorSurename = "Surename is empty"
+    
     @State private var isValidName = false
+    @State private var isNeedToShowNameError = false
+    
     @State private var isValidSurname = false
+    @State private var isNeedToShowSurnameError = false
+    
     @State private var isValidEmail = false
+    @State private var isNeedToShowEmailError = false
+    
     @State private var isValidMessage = false
 
     
@@ -46,9 +56,17 @@ struct ContactUsScreen: View {
                         .setFocusedBorderColorEnable(true)
                         .setFocusedBorderColor(Colors.main_active_border_color)
                         .setPlaceHolderTextColor(Colors.main_dark_gray_color)
+                        .setError(errorText: $errorName, error: $isNeedToShowNameError)
                         .setCornerRadius(10)
                         .onChange(of: email) { newValue in
-                            isValidName = isValidName(newValue)
+                            var value = newValue.trimmingCharacters(in: .whitespaces)
+
+                            if value.isEmpty {
+                                isNeedToShowNameError = false
+                            } else {
+                                isNeedToShowNameError = !isValidSurname(value)
+                            }
+                            isValidName = isValidName(value)
                         }
                     
         
@@ -58,9 +76,17 @@ struct ContactUsScreen: View {
                         .setFocusedBorderColorEnable(true)
                         .setPlaceHolderTextColor(Colors.main_dark_gray_color)
                         .setFocusedBorderColor(Colors.main_active_border_color)
+                        .setError(errorText: $errorSurename, error: $isNeedToShowSurnameError)
                         .setCornerRadius(10)
                         .onChange(of: email) { newValue in
-                            isValidSurname = isValidSurname(newValue)
+                            var value = newValue.trimmingCharacters(in: .whitespaces)
+                            
+                            if value.isEmpty {
+                                isNeedToShowSurnameError = false
+                            } else {
+                                isNeedToShowSurnameError = !isValidSurname(value)
+                            }
+                            isValidSurname = isValidSurname(value)
                         }
                     
                     EGTextField(text: $email)
@@ -69,9 +95,17 @@ struct ContactUsScreen: View {
                         .setFocusedBorderColorEnable(true)
                         .setPlaceHolderTextColor(Colors.main_dark_gray_color)
                         .setFocusedBorderColor(Colors.main_active_border_color)
+                        .setError(errorText: $errorEmail, error: $isNeedToShowEmailError)
                         .setCornerRadius(10)
                         .onChange(of: email) { newValue in
-                            isValidEmail = isValidEmail(newValue)
+                            var value = newValue.trimmingCharacters(in: .whitespaces)
+
+                            if value.isEmpty {
+                                isNeedToShowEmailError = false
+                            } else {
+                                isNeedToShowEmailError = !isValidEmail(value)
+                            }
+                            isValidEmail = isValidEmail(value)
                         }
                     
                     ZStack {
@@ -110,7 +144,12 @@ struct ContactUsScreen: View {
             Spacer()
             
             Button {
-                print("ACTION")
+                nameText = ""
+                surName = ""
+                email = ""
+                message = "Enter your message"
+                
+                UIApplication.shared.sendAction(#selector( UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             } label: {
                 Text("Send")
                     .font(.system(size: 17, weight: .bold))

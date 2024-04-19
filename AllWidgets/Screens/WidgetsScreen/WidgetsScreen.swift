@@ -329,6 +329,12 @@ struct WidgetsScreen: View {
         case .bigger:
             selectedTypeOfPhotoWidget = .space
         case .space:
+            selectedTypeOfPhotoWidget = .car
+        case .car:
+            selectedTypeOfPhotoWidget = .bitch
+        case .bitch:
+            selectedTypeOfPhotoWidget = .london
+        case .london:
             selectedTypeOfPhotoWidget = .basic
         }
     }
@@ -379,6 +385,9 @@ struct WidgetsScreen: View {
             case .simple: return 3
             case .bigger: return 4
             case .space: return 5
+            case .car: return 6
+            case .bitch: return 7
+            case .london: return 8
             }
         } else {
             switch type {
@@ -387,6 +396,9 @@ struct WidgetsScreen: View {
             case .simple: return 3
             case .bigger: return 4
             case .space: return 5
+            case .car: return 6
+            case .bitch: return 7
+            case .london: return 8
             case .none:
                 return 0
             }

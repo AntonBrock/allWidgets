@@ -13,6 +13,9 @@ enum TypeOfPhotoWidget: String {
     case simple
     case space
     case bigger
+    case car
+    case bitch
+    case london
 }
 
 struct PhotoWidgets: View {
@@ -78,6 +81,27 @@ struct PhotoWidgets: View {
                 return "ic_photo_space_preview-small"
             case .medium:
                 return "ic_photo_space_preview-large"
+            }
+        case .car:
+            switch size {
+            case .small:
+                return "ic_photo_car_preview-small"
+            case .medium:
+                return "ic_photo_car_preview-large"
+            }
+        case .london:
+            switch size {
+            case .small:
+                return "ic_photo_london_preview-small"
+            case .medium:
+                return "ic_photo_london_preview-large"
+            }
+        case .bitch:
+            switch size {
+            case .small:
+                return "ic_photo_bitch_preview-small"
+            case .medium:
+                return "ic_photo_bitch_preview-large"
             }
         }
     }

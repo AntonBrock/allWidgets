@@ -288,6 +288,9 @@ struct AllWidgetsApp: App {
             case .simple: return ["ic_photo_simple_preview-small", "ic_photo_simple_preview-large"]
             case .space: return ["ic_photo_space_preview-small", "ic_photo_space_preview-large"]
             case .bigger: return ["ic_photo_bigger_preview-small", "ic_photo_bigger_preview-large"]
+            case .car: return ["ic_photo_car_preview-small", "ic_photo_car_preview-large"]
+            case .bitch: return ["ic_photo_bitch_preview-small", "ic_photo_bitch_preview-large"]
+            case .london: return ["ic_photo_london_preview-small", "ic_photo_london_preview-large"]
             }
         }
     }

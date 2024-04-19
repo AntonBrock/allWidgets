@@ -20,7 +20,6 @@ class IntentHandler: INExtension, MyWidgetConfigurationIntentHandling {
                 display: "\(asset.widget) \(getNumberOfType(type: asset.type))"
             )
             
-//            curent.id = (asset.id) as NSNumber
             curent.widget = asset.widget
             curent.size = asset.size
             curent.type = asset.type
@@ -38,6 +37,10 @@ class IntentHandler: INExtension, MyWidgetConfigurationIntentHandling {
         case "halfOnHalf": return "2"
         case "simple": return "3"
         case "bigger": return "4"
+        case "space": return "5"
+        case "car": return "6"
+        case "bitch": return "7"
+        case "london": return "8"
         default: return type
         }
     }

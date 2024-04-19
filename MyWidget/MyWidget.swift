@@ -130,6 +130,36 @@ struct MyWidgetView: View {
                         .aspectRatio(contentMode: .fill)
                         .padding(.bottom, -15)
                 }
+            case "bitch":
+                if entry.size == "small" {
+                    Image("ic_photo_bitch_preview-small")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                } else {
+                    Image("ic_photo_bitch_preview-large")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                }
+            case "london":
+                if entry.size == "small" {
+                    Image("ic_photo_london_preview-small")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                } else {
+                    Image("ic_photo_london_preview-large")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                }
+            case "car":
+                if entry.size == "small" {
+                    Image("ic_photo_car_preview-small")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                } else {
+                    Image("ic_photo_car_preview-large")
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.bottom, -15)
+                }
             default:
                 Image("ic_photo_space_preview-small")
                     .aspectRatio(contentMode: .fill)

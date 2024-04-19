@@ -46,7 +46,7 @@ struct AllWidgetsApp: App {
     @State private var selectedSizeWidget: WidgetsSize = .small
     @State private var selectedWidgetPreview: SelectedWidgetPreview = .Clock
     
-    @State var route: Route = .MainRoute
+    @State var route: Route = .Launch
     
     var body: some Scene {
         WindowGroup {
@@ -54,9 +54,13 @@ struct AllWidgetsApp: App {
             case .Launch:
                 LaunchScreen()
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                             withAnimation {
-                                route = .Onboarding
+                                if UserDefaults.standard.bool(forKey: "ShownOnboarding") {
+                                    route = .MainRoute
+                                } else {
+                                    route = .Onboarding
+                                }
                             }
                         }
                     }

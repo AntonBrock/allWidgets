@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnboardingScreen: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     let onClose: () -> Void
     
     @ObservedObject var viewModel: OnboardingViewModel = OnboardingViewModel()
@@ -77,6 +79,7 @@ struct OnboardingScreen: View {
                         }
                         
                         Button {
+                            presentationMode.wrappedValue.dismiss()
                             onClose()
                         } label: {
                             Text("Finish!")
@@ -111,5 +114,8 @@ struct OnboardingScreen: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            UserDefaults.standard.setValue(true, forKey: "ShownOnboarding")
+        }
     }
 }

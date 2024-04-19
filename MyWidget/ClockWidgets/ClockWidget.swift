@@ -34,6 +34,24 @@ struct ClockWidget: View {
                 } else {
                     prepareViewForBiggerMedium(date: date)
                 }
+            case "red":
+                if size == "small" {
+                    prepareViewForRedSmall(date: date)
+                } else {
+                    prepareViewForRedMedium(date: date)
+                }
+            case "clear":
+                if size == "small" {
+                    prepareViewForClearSmall(date: date)
+                } else {
+                    prepareViewForClearMedium(date: date)
+                }
+            case "clearWhite":
+                if size == "small" {
+                    prepareViewForClearWhiteSmall(date: date)
+                } else {
+                    prepareViewForClearWhiteMedium(date: date)
+                }
             default:
                 if size == "small" {
                     prepareViewForBasicSmall(date: date)
@@ -431,4 +449,224 @@ struct ClockWidget: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
+    
+    // MARK: - Red
+    @ViewBuilder
+    func prepareViewForRedSmall(date: Date) -> some View {
+        var formattedDateTime: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            return dateFormatter.string(from: date)
+        }
+        
+        var formattedDateDay: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.YYYY"
+            return dateFormatter.string(from: date)
+        }
+        
+        VStack(spacing: 0) {
+            Text(formattedDateTime)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(.white)
+                .font(.system(size: 32, weight: .bold))
+                .fixedSize(horizontal: true, vertical: true)
+                .padding(.bottom, 5)
+            
+            HStack(spacing: 12) {
+                Text(formattedDateDay)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 16, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+    
+    @ViewBuilder
+    func prepareViewForRedMedium(date: Date) -> some View {
+        var formattedDateTime: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            return dateFormatter.string(from: date)
+        }
+        
+        var formattedDateDay: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.YYYY"
+            return dateFormatter.string(from: date)
+        }
+        
+        VStack(spacing: 0) {
+            Text(formattedDateTime)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(.white)
+                .font(.system(size: 36, weight: .bold))
+                .fixedSize(horizontal: true, vertical: true)
+                .padding(.bottom, 5)
+            
+            HStack(spacing: 12) {
+                Text(formattedDateDay)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+    
+    // MARK: - Clear
+    @ViewBuilder
+    func prepareViewForClearSmall(date: Date) -> some View {
+        var formattedDateTime: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            return dateFormatter.string(from: date)
+        }
+        
+        var formattedDateDay: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.YYYY"
+            return dateFormatter.string(from: date)
+        }
+        
+        VStack(spacing: 0) {
+            Text(formattedDateTime)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(.white)
+                .font(.system(size: 32, weight: .bold))
+                .fixedSize(horizontal: true, vertical: true)
+                .padding(.bottom, 5)
+            
+            HStack(spacing: 12) {
+                Text(formattedDateDay)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 16, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+    
+    @ViewBuilder
+    func prepareViewForClearMedium(date: Date) -> some View {
+        var formattedDateTime: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            return dateFormatter.string(from: date)
+        }
+        
+        var formattedDateDay: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.YYYY"
+            return dateFormatter.string(from: date)
+        }
+        
+        VStack(spacing: 0) {
+            Text(formattedDateTime)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(.white)
+                .font(.system(size: 55, weight: .bold))
+                .fixedSize(horizontal: true, vertical: true)
+                .padding(.bottom, 5)
+            
+            HStack(spacing: 12) {
+                Text(formattedDateDay)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(.white)
+                    .font(.system(size: 25, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+    
+    // MARK: - ClearWhite
+    @ViewBuilder
+    func prepareViewForClearWhiteSmall(date: Date) -> some View {
+        var formattedDateTime: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            return dateFormatter.string(from: date)
+        }
+        
+        var formattedDateDay: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.YYYY"
+            return dateFormatter.string(from: date)
+        }
+        
+        VStack(spacing: 0) {
+            Text(formattedDateTime)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(Color(hex: "#4A4C61"))
+                .font(.system(size: 32, weight: .bold))
+                .fixedSize(horizontal: true, vertical: true)
+                .padding(.bottom, 5)
+            
+            HStack(spacing: 12) {
+                Text(formattedDateDay)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(Color(hex: "#4A4C61"))
+                    .font(.system(size: 16, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+    
+    @ViewBuilder
+    func prepareViewForClearWhiteMedium(date: Date) -> some View {
+        var formattedDateTime: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            return dateFormatter.string(from: date)
+        }
+        
+        var formattedDateDay: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.YYYY"
+            return dateFormatter.string(from: date)
+        }
+        
+        VStack(spacing: 0) {
+            Text(formattedDateTime)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(Color(hex: "#4A4C61"))
+                .font(.system(size: 55, weight: .bold))
+                .fixedSize(horizontal: true, vertical: true)
+                .padding(.bottom, 5)
+            
+            HStack(spacing: 12) {
+                Text(formattedDateDay)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    .foregroundColor(Color(hex: "#4A4C61"))
+                    .font(.system(size: 25, weight: .bold))
+                    .fixedSize(horizontal: true, vertical: true)
+                    .textCase(.uppercase)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+    
 }

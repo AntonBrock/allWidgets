@@ -10,8 +10,10 @@ import SwiftUI
 enum TypeOfClockWidget: String {
     case basic
     case halfOnHalf
-    case simple
     case bigger
+    case red
+    case clear
+    case clearWhite
 }
 
 struct ClockWidgets: View {
@@ -57,19 +59,33 @@ struct ClockWidgets: View {
             case .medium:
                 return "ic_clock_halfOnHalf_preview-large"
             }
-        case .simple:
-            switch size {
-            case .small:
-                return "ic_clock_simple_preview-small"
-            case .medium:
-                return "ic_clock_simple_preview-large"
-            }
         case .bigger:
             switch size {
             case .small:
                 return "ic_clock_bigger_preview-small"
             case .medium:
                 return "ic_clock_bigger_preview-large"
+            }
+        case .red:
+            switch size {
+            case .small:
+                return "ic_clock_red_preview-small"
+            case .medium:
+                return "ic_clock_red_preview-large"
+            }
+        case .clear:
+            switch size {
+            case .small:
+                return "ic_clock_clear_preview-small"
+            case .medium:
+                return "ic_clock_clear_preview-large"
+            }
+        case .clearWhite:
+            switch size {
+            case .small:
+                return "ic_clock_clearWhite_preview-small"
+            case .medium:
+                return "ic_clock_clearWhite_preview-large"
             }
         }
     }

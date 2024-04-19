@@ -65,7 +65,19 @@ struct MyWidgetView: View {
                             Color.white
                         }
                     }
-                default: Color.white
+                case "red":
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 18)
+                            .fill(.black)
+                        
+                        RoundedRectangle(cornerRadius: 18)
+                            .fill(Colors.main_red_color)
+                            .padding(.vertical, 3)
+                            .padding(.horizontal, entry.size == "small" ? 7 : 5)
+                    }
+                case "clear": Color(hex: "#4A4C61")
+                case "clearWhite": Color.white
+                default: Color.clear
                 }
             case "Photo": Color.white
             case "Calendar": Color.white

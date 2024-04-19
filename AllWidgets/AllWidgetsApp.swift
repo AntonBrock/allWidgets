@@ -271,8 +271,10 @@ struct AllWidgetsApp: App {
             switch selectedClockWidget {
             case .basic: return ["ic_clock_basic_preview-small", "ic_clock_basic_preview-large"]
             case .halfOnHalf: return ["ic_clock_halfOnHalf_preview-small", "ic_clock_halfOnHalf_preview-large"]
-            case .simple: return ["ic_clock_simple_preview-small", "ic_clock_simple_preview-large"]
             case .bigger: return ["ic_clock_bigger_preview-small", "ic_clock_bigger_preview-large"]
+            case .red: return ["ic_clock_red_preview-small", "ic_clock_red_preview-large"]
+            case .clear: return ["ic_clock_clear_preview-small", "ic_clock_clear_preview-large"]
+            case .clearWhite: return ["ic_clock_clearWhite_preview-small", "ic_clock_clearWhite_preview-large"]
             }
         case .Calendar:
             switch selectedCalendarWidget {

@@ -30,7 +30,7 @@ struct MyWidgetView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             case "Calendar": Text("Calendar")
             case "Photo": photoWidget()
-            default: Text("None")
+            default: Text("AllWidgets")
             }
         }
         .containerBackground(for: .widget) {
@@ -181,7 +181,7 @@ struct MyWidgetView: View {
 
 struct MyWidgetTimelineProvider: IntentTimelineProvider {
     func placeholder(in context: Context) -> MyWidgetEntry {
-        return MyWidgetEntry(date: Date(), id: nil, widget: nil, size: nil, type: nil, myText: "AllWidgets")
+        return MyWidgetEntry(date: Date(), id: 0, widget: nil, size: nil, type: nil, myText: "AllWidgets")
     }
 
     func getSnapshot(for configuration: MyWidgetConfigurationIntent,

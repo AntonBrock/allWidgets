@@ -25,7 +25,7 @@ struct WidgetsScreen: View {
     @State private var selectedTypeOfCalendarWidget: TypeOfCalendarWidget = .basic
     @State private var selectedTypeOfPhotoWidget: TypeOfPhotoWidget = .basic
     
-    @State private var savedWidgetsFromStorage: [[String: Any]] = [[:]]
+    @State private var savedWidgetsFromStorage: [[String: Any]] = []
 
     var body: some View {
         ScrollView(.vertical) {
@@ -68,7 +68,7 @@ struct WidgetsScreen: View {
                                 }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, -10)
+//                        .padding(.top, 10)
                     }
                     
                     Spacer()
@@ -120,6 +120,7 @@ struct WidgetsScreen: View {
                 self.savedWidgetsFromStorage = savedWidgets
                 
                 let sorted = self.savedWidgetsFromStorage.sorted { ($0["id"] as? Int ?? 0) > ($1["id"] as? Int ?? 0) }
+                
                 self.savedWidgetsFromStorage = sorted
             }
         }
@@ -171,7 +172,7 @@ struct WidgetsScreen: View {
                         }
                 }
                 .offset(x: 0, y: 0)
-                .padding(.top, -20)
+//                .padding(.top, -20)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -217,7 +218,7 @@ struct WidgetsScreen: View {
                         }
                 }
                 .offset(x: 0, y: 0)
-                .padding(.top, -20)
+//                .padding(.top, -20)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.top, 32)

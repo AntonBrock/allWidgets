@@ -306,6 +306,7 @@ struct AllWidgetsApp: App {
             var savedWidgets: [[String: Any]] = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] ?? []
 
             let widgetDict: [String: Any] = ["id": savedWidgets.count + 1, "size": size, "type": type, "widget": widget]
+            
             savedWidgets.append(widgetDict)
             userDefaults.set(savedWidgets, forKey: "savedWidget")
         }

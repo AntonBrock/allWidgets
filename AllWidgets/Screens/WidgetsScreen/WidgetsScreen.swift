@@ -119,7 +119,7 @@ struct WidgetsScreen: View {
             if let savedWidgets = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] {
                 self.savedWidgetsFromStorage = savedWidgets
                 
-                let sorted = self.savedWidgetsFromStorage.sorted { ($0["id"] as? Int ?? 0) < ($1["id"] as? Int ?? 0) }
+                let sorted = self.savedWidgetsFromStorage.sorted { ($0["id"] as? Int ?? 0) > ($1["id"] as? Int ?? 0) }
                 self.savedWidgetsFromStorage = sorted
             }
         }
@@ -282,13 +282,24 @@ struct WidgetsScreen: View {
     }
     
     private func deleteItem(index: Int) {
-        savedWidgetsFromStorage.remove(at: index)
+        let selectedItem = savedWidgetsFromStorage[index]
+        
+        guard let secetedItemId = selectedItem["id"] as? Int else {
+            return
+        }
+        
+        savedWidgetsFromStorage.removeAll { element in
+            element["id"] as? Int == secetedItemId
+        }
+        
+        var newId = 1
+        for index in 0..<savedWidgetsFromStorage.count {
+            savedWidgetsFromStorage[index]["id"] = newId
+            newId += 1
+        }
         
         if let userDefaults = UserDefaults(suiteName: "group.allWidgets.AllWidgets") {
-            var savedWidgets: [[String: Any]] = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] ?? []
-
-            savedWidgets = savedWidgetsFromStorage
-            userDefaults.set(savedWidgets, forKey: "savedWidget")
+            userDefaults.set(savedWidgetsFromStorage, forKey: "savedWidget")
         }
     }
     

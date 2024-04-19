@@ -35,8 +35,8 @@ class IntentHandler: INExtension, MyWidgetConfigurationIntentHandling {
         switch type {
         case "basic": return "1"
         case "halfOnHalf": return "2"
-        case "bigger": return "3"
-        case "red": return "4"
+        case "simple": return "3"
+        case "bigger", "red": return "4"
         case "space", "clearWhite": return "5"
         case "car", "clear": return "6"
         case "bitch": return "7"

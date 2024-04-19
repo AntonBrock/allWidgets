@@ -30,9 +30,7 @@ struct MyWidgetView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             case "Calendar": Text("Calendar")
             case "Photo": photoWidget()
-            default:
-                Text("1. Long press the widget\n2. Tap edit widget\n3. Choose your widget from the saved list")
-                    .font(.subheadline.weight(.light))
+            default: Text("None")
             }
         }
         .containerBackground(for: .widget) {
@@ -192,7 +190,7 @@ struct MyWidgetTimelineProvider: IntentTimelineProvider {
         
         let entry = MyWidgetEntry(
             date: Date(),
-            id: nil,
+            id: 0,
             widget: nil,
             size: nil,
             type: nil,
@@ -203,18 +201,18 @@ struct MyWidgetTimelineProvider: IntentTimelineProvider {
 
     func getTimeline(for configuration: MyWidgetConfigurationIntent,
                      in context: Context,
-                     completion: @escaping (Timeline<MyWidgetEntry>) -> ()) {
-        
+                     completion: @escaping (Timeline<MyWidgetEntry>) -> ()
+    ) {
         Task {
-            let data = AssetFetcher.loadWidgetData(suiteName: "group.allWidgets.AllWidgets")
+            let data = AssetFetcher.loadWidgetData(suiteName: "group.allWidgets.AllWidgets") // [[:]]
             let id = Int(configuration.selectedWidget?.identifier ?? "0") ?? 0
             
             let entry = MyWidgetEntry(
                 date: Date(),
-                id: id,
-                widget: data[id].widget,
+                id: id - 1,
+                widget: data[id - 1].widget,
                 size: context.family == .systemSmall ? "small" : context.family == .systemMedium ? "medium" : "small",
-                type: data[id].type,
+                type: data[id - 1].type,
                 myText: "1. Long press the widget\n2. Tap edit widget\n3. Choose your widget from the saved list"
             )
 

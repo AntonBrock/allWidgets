@@ -813,6 +813,7 @@
 				INFOPLIST_FILE = MyWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MyWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -845,6 +846,7 @@
 				INFOPLIST_FILE = MyWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MyWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -875,6 +877,7 @@
 				INFOPLIST_FILE = IntentHandler/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = IntentHandler;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -905,6 +908,7 @@
 				INFOPLIST_FILE = IntentHandler/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = IntentHandler;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

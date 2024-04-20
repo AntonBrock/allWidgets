@@ -33,56 +33,7 @@ struct MyWidgetView: View {
             default: Text("AllWidgets")
             }
         }
-        .containerBackground(for: .widget) {
-            switch entry.widget {
-            case "Clock":
-                switch entry.type {
-                case "basic": Colors.main_active_border_color.opacity(0.3)
-                case "bigger": Colors.purple_main_color
-                case "halfOnHalf":
-                    if entry.size == "small" {
-                        VStack(spacing: 0) {
-                            LinearGradient(
-                                gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                            .edgesIgnoringSafeArea(.all)
-                            
-                            Color.white
-                        }
-                    } else {
-                        HStack(spacing: 0) {
-                            LinearGradient(
-                                gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                            .frame(maxWidth: 120)
-                            
-                            Color.white
-                        }
-                    }
-                case "red":
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 18)
-                            .fill(.black)
-                        
-                        RoundedRectangle(cornerRadius: 18)
-                            .fill(Colors.main_red_color)
-                            .padding(.vertical, 3)
-                            .padding(.horizontal, entry.size == "small" ? 7 : 5)
-                    }
-                case "clear": Color(hex: "#4A4C61")
-                case "clearWhite": Color.white
-                default: Color.clear
-                }
-            case "Photo": Color.white
-            case "Calendar": Color.white
-            default: Color.white
-            }
-            
-        }
+        .widgetBackground(getBackgroundView())
     }
     
     // MARK: - PhotoWidget
@@ -177,6 +128,57 @@ struct MyWidgetView: View {
             }
         }
     }
+    
+    @ViewBuilder
+    private func getBackgroundView() -> some View {
+        switch entry.widget {
+        case "Clock":
+            switch entry.type {
+            case "basic": Colors.main_active_border_color.opacity(0.3)
+            case "bigger": Colors.purple_main_color
+            case "halfOnHalf":
+                if entry.size == "small" {
+                    VStack(spacing: 0) {
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        .edgesIgnoringSafeArea(.all)
+                        
+                        Color.white
+                    }
+                } else {
+                    HStack(spacing: 0) {
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color(hex: "777A93"), Color(hex: "262738")]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        .frame(maxWidth: 120)
+                        
+                        Color.white
+                    }
+                }
+            case "red":
+                ZStack {
+                    RoundedRectangle(cornerRadius: 18)
+                        .fill(.black)
+                    
+                    RoundedRectangle(cornerRadius: 18)
+                        .fill(Colors.main_red_color)
+                        .padding(.vertical, 3)
+                        .padding(.horizontal, entry.size == "small" ? 7 : 5)
+                }
+            case "clear": Color(hex: "#4A4C61")
+            case "clearWhite": Color.white
+            default: Color.clear
+            }
+        case "Photo": Color.white
+        case "Calendar": Color.white
+        default: Color.white
+        }
+    }
 }
 
 struct MyWidgetTimelineProvider: IntentTimelineProvider {
@@ -266,6 +268,18 @@ extension WidgetConfiguration {
             return self.contentMarginsDisabled()
         } else {
             return self
+        }
+    }
+}
+
+extension View {
+    func widgetBackground(_ backgroundView: some View) -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return containerBackground(for: .widget) {
+                backgroundView
+            }
+        } else {
+            return background(backgroundView)
         }
     }
 }

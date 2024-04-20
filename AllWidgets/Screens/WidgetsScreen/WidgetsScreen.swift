@@ -102,6 +102,7 @@ struct WidgetsScreen: View {
                     getSavedWidgets()
                 }
             }
+            .padding(.bottom, 90)
             .onChange(of: selectedSegment) { newValue in
                 if newValue == 1 {
                     getSavedWidgets()
@@ -111,7 +112,6 @@ struct WidgetsScreen: View {
         .scrollIndicators(.hidden)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 16)
-        .padding(.bottom, 90)
     }
     
     private func getSavedWidgets() {

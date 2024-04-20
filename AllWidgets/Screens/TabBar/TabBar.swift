@@ -16,6 +16,8 @@ enum Tab: String, CaseIterable {
 struct TabBar: View {
     
     @Binding var selectedTab: Tab
+    
+    let screenWidth = UIScreen.main.bounds.size.width
     var tabs: [Tab] = [.wallpapers, .widgets, .settings]
     
     var iconNameForTab: [Tab: String] = [
@@ -63,8 +65,9 @@ struct TabBar: View {
                     Spacer()
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .center)
-            .padding(.bottom, 15)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .padding(.bottom, screenWidth < 375 ? 15 : 45)
+            .padding(.top, -10)
         }
         .background(.white)
         .frame(maxWidth: .infinity, maxHeight: 30)

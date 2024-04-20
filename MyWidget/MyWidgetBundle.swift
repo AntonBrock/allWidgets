@@ -11,6 +11,10 @@ import SwiftUI
 @main
 struct MyWidgetBundle: WidgetBundle {
     var body: some Widget {
-        MyWidget()
+        if #available(iOS 17.0, *) {
+            return WidgetBundleBuilder.buildBlock(MyWidget())
+        } else {
+            return MyWidget()
+        }
     }
 }

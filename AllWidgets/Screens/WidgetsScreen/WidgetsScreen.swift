@@ -118,10 +118,6 @@ struct WidgetsScreen: View {
         if let userDefaults = UserDefaults(suiteName: "group.allWidgets.AllWidgets") {
             if let savedWidgets = userDefaults.array(forKey: "savedWidget") as? [[String: Any]] {
                 self.savedWidgetsFromStorage = savedWidgets
-                
-                let sorted = self.savedWidgetsFromStorage.sorted { ($0["id"] as? Int ?? 0) > ($1["id"] as? Int ?? 0) }
-                
-                self.savedWidgetsFromStorage = sorted
             }
         }
     }
@@ -172,7 +168,6 @@ struct WidgetsScreen: View {
                         }
                 }
                 .offset(x: 0, y: 0)
-//                .padding(.top, -20)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 

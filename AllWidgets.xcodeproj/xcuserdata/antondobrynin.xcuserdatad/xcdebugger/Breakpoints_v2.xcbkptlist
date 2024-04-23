@@ -62,8 +62,8 @@
             filePath = "AllWidgets/Screens/WidgetsScreen/WidgetsScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "configrureSavedWidgets(savedWidgets:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "AllWidgets/Screens/WidgetsScreen/WidgetsScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "deleteItem(index:)"
             landmarkType = "7">
          </BreakpointContent>

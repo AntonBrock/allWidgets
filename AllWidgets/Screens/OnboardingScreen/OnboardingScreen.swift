@@ -101,7 +101,6 @@ struct OnboardingScreen: View {
                             )
                             .cornerRadius(15)
                         )
-//                        .padding(.top, -60)
                         .padding(.horizontal, 24)
                         .opacity(selection == viewModel.oboardingScreens.count - 1 ? 1 : 0)
                         .transition(.opacity)

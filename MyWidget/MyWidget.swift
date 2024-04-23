@@ -45,86 +45,86 @@ struct MyWidgetView: View {
                 if entry.size == "small" {
                     Image("ic_photo_basic_preview-small")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 } else {
                     Image("ic_photo_basic_preview-large")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 }
             case "bigger":
                 if entry.size == "small" {
                     Image("ic_photo_bigger_preview-small")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 } else {
                     Image("ic_photo_bigger_preview-large")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 }
             case "halfOnHalf":
                 if entry.size == "small" {
                     Image("ic_photo_halfOnHalf_preview-small")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 } else {
                     Image("ic_photo_halfOnHalf_preview-large")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 }
             case "simple":
                 if entry.size == "small" {
                     Image("ic_photo_simple_preview-small")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 } else {
                     Image("ic_photo_simple_preview-large")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 }
             case "space":
                 if entry.size == "small" {
                     Image("ic_photo_space_preview-small")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 } else {
                     Image("ic_photo_space_preview-large")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 }
             case "bitch":
                 if entry.size == "small" {
                     Image("ic_photo_bitch_preview-small")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 } else {
                     Image("ic_photo_bitch_preview-large")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 }
             case "london":
                 if entry.size == "small" {
                     Image("ic_photo_london_preview-small")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 } else {
                     Image("ic_photo_london_preview-large")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 }
             case "car":
                 if entry.size == "small" {
                     Image("ic_photo_car_preview-small")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 } else {
                     Image("ic_photo_car_preview-large")
                         .aspectRatio(contentMode: .fill)
-                        .padding(.bottom, -15)
+                        .padding(.bottom, -28)
                 }
             default:
                 Image("ic_photo_space_preview-small")
                     .aspectRatio(contentMode: .fill)
-                    .padding(.bottom, -15)
+                    .padding(.bottom, -28)
             }
         }
     }

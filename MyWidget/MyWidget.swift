@@ -20,6 +20,7 @@ struct MyWidgetEntry: TimelineEntry {
 
 struct MyWidgetView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @State var entry: MyWidgetEntry
     
     var body: some View {
@@ -30,7 +31,7 @@ struct MyWidgetView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             case "Calendar": Text("Calendar")
             case "Photo": photoWidget()
-            default: Text("AllWidgets")
+            default: emptyWidget()
             }
         }
         .widgetBackground(getBackgroundView())
@@ -179,11 +180,34 @@ struct MyWidgetView: View {
         default: Color.white
         }
     }
+    
+    // MARK: - EmptyWidget
+    @ViewBuilder
+    private func emptyWidget() -> some View {
+        VStack { 
+            VStack() {
+                Text("1. Long press the widget\n2. Tap edit widget\n3. Choose your widget from the saved list")
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .foregroundStyle(
+                        colorScheme == .dark
+                        ? Colors.main_dark_blue_color
+                        : Colors.main_dark_blue_color)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
 }
 
 struct MyWidgetTimelineProvider: IntentTimelineProvider {
     func placeholder(in context: Context) -> MyWidgetEntry {
-        return MyWidgetEntry(date: Date(), id: 0, widget: nil, size: nil, type: nil, myText: "AllWidgets")
+        return MyWidgetEntry(
+            date: Date(),
+            id: nil,
+            widget: nil,
+            size: nil,
+            type: nil,
+            myText: "AllWidgets"
+        )
     }
 
     func getSnapshot(for configuration: MyWidgetConfigurationIntent,
@@ -192,7 +216,7 @@ struct MyWidgetTimelineProvider: IntentTimelineProvider {
         
         let entry = MyWidgetEntry(
             date: Date(),
-            id: 0,
+            id: nil,
             widget: nil,
             size: nil,
             type: nil,
@@ -206,7 +230,13 @@ struct MyWidgetTimelineProvider: IntentTimelineProvider {
                      completion: @escaping (Timeline<MyWidgetEntry>) -> ()
     ) {
         Task {
-            let data = AssetFetcher.loadWidgetData(suiteName: "group.allWidgets.AllWidgets") // [[:]]
+            let data = AssetFetcher.loadWidgetData(suiteName: "group.allWidgets.AllWidgets")
+            
+            guard !data.isEmpty else {
+                showEmptyState(completion: completion)
+                return
+            }
+            
             let id = Int(configuration.selectedWidget?.identifier ?? "0") ?? 0
             
             let entry = MyWidgetEntry(
@@ -220,6 +250,21 @@ struct MyWidgetTimelineProvider: IntentTimelineProvider {
 
             executeTimelineCompletion(completion, timelineEntry: entry)
         }
+    }
+    
+    func showEmptyState(completion: @escaping (Timeline<MyWidgetEntry>) -> ()) {
+        
+        let entry = MyWidgetEntry(
+            date: Date(),
+            id: nil,
+            widget: nil,
+            size: nil,
+            type: nil,
+            myText: "1. Long press the widget\n2. Tap edit widget\n3. Choose your widget from the saved list"
+        )
+        
+        // Trigger completion & next fetch happens 15 minutes later
+        executeTimelineCompletion(completion, timelineEntry: entry)
     }
     
     func executeTimelineCompletion(_ completion: @escaping (Timeline<MyWidgetEntry>) -> (),
